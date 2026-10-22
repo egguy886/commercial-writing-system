@@ -1,128 +1,190 @@
-# 商业写作系统 | Commercial Writing System (CWS)
+# Commercial Writing System (CWS)
 
 <p align="center">
-  <strong>专为中长篇连载小说、高能短剧与爆款网文打造的工业化专业创作引擎</strong>
+  <strong>An Industrial-Grade Production Engine for Serialized Novels, High-Tension Fiction & Screenplays with Autonomous AI Agents.</strong>
+</p>
+
+<p align="center">
+  <a href="README.md">English</a> •
+  <a href="README_zh.md">简体中文</a>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Version-v1.0.0-blue.svg" alt="Version">
-  <img src="https://img.shields.io/badge/Runtime-Antigravity%20%7C%20Claude%20Code%20%7C%20OpenCode-orange.svg" alt="Runtime">
-  <img src="https://img.shields.io/badge/Focus-Anti--AI%20%26%20Cinematographic-red.svg" alt="Focus">
+  <img src="https://img.shields.io/badge/Version-v1.1.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Runtime-Antigravity%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor-orange.svg" alt="Runtime">
+  <img src="https://img.shields.io/badge/Focus-Anti--AI%20%26%20Cinematography-red.svg" alt="Focus">
 </p>
 
 ---
 
-## 📖 为什么需要「商业写作系统」？
+## 📖 The Core Problem: Why Raw LLMs Fail at Long-Form Fiction
 
-直接让大语言模型（LLM）写长篇小说，99% 会在 3~5 万字之内迅速崩坏，陷入 AI 写作的**四大绝症**：
+When prompted directly to write extended fiction, 99% of Large Language Models (LLMs) break down within 30,000 to 50,000 words. They suffer from the **Four Fatal Flaws of AI Writing**:
 
-| 绝症症状 | 产生原因 | 商业写作系统的破局解法 |
+| Fatal Symptom | Root Cause | CWS Industrial Solution |
 | :--- | :--- | :--- |
-| **悬浮虚假（假大空）** | 缺乏具象感官，充斥“极其、极度、宛如、不禁”等廉价副词与心理概括 | **影视化写作宪法**：场景三问（光/空间/气味）、道具重量质感、微动作特写 |
-| **机械降神（战力失控）** | 模型缺乏物理约束，遇到难关就强行神级自愈或天降奇兵 | **活体状态快照**：伤情物理锁定（骨折必须瘸行30章）、资源实打实对账 |
-| **失控烂尾（前写后忘）** | 上下文窗口滑动导致重要人物蒸发、伏笔无序悬空 | **伏笔四态生命周期**：全书伏笔强制编号（#001~#NNN），50章必须闭环对账 |
-| **黑盒跳步（快餐粗糙）** | 一次性指令生成万字粗坯，文笔注水、节奏崩塌 | **四级阶梯骨架**：10章一个战术单元，实施预案先行，一章一磨，质量门卡点 |
+| **Floaty & Abstract Prose ("AI Voice")** | Over-reliance on cheap degree adverbs (*extremely, desperately, as if*), tell-don't-show psychology, and repetitive flowery clichés. | **Cinematographic Constitution**: Strict Scene Triage (light/space/micro-climate), tangible prop physics, and micro-action sliced choreography. |
+| **Deus Ex Machina & Power Creep** | Zero physical friction. Wounds vanish spontaneously, characters defy fatigue, and solutions fall from the sky. | **Living State Sync & Wound Locks**: Wounds remain physically locked across chapters; inventory, consumables, and travel stamina are strictly balanced. |
+| **Amnesia & Dropped Plotlines** | Sliding context windows drop side characters, erase established constraints, and abandon mysteries. | **Numbered Foreshadowing Lifecycle**: All clues strictly indexed (`#001`~`#NNN`) through a 3-state pipeline (*Planted $\rightarrow$ Misdirected $\rightarrow$ Payoff*). |
+| **Black-Box Skipping & Pacing Collapse** | Single-shot generation leaps across crucial turning points, flattening dramatic tension into sterile summaries. | **4-Stage Production Pipeline**: Strict 10-chapter tactical units, pre-approved battle plans, single-chapter craftsmanship, and Triple Quality Gates. |
 
 ---
 
-## 🏛️ 系统核心架构（Architecture）
+## 🏛️ System Architecture & Working Principles
 
-商业写作系统将顶级职业写手的创作直觉，解构成一套**确定性、可量化、可工程化复现的工业流水线**：
+The **Commercial Writing System** deconstructs a master novelist's intuition into a deterministic, verifiable, and anti-collapse industrial engineering pipeline.
 
 ```mermaid
-flowchart LR
-    subgraph 宏观地基 [L1 - L2: 宏观地基]
-        A1[00-情绪地图<br/>核心欲求/三值点] --> A2[01-角色档案<br/>定妆五要素/动机核]
-        A2 --> A3[02-总大纲<br/>分卷战略/五层真相]
-        A3 --> A4[03-伏笔表<br/>#001~#NNN 编号追踪]
+flowchart TD
+    subgraph S1 [Stage 1: Clarification & Macro Foundations L1-L2]
+        A0["Clarify Interview<br/>(5 Targeted Questions: Desires, Pace, Ending, Red Lines)"] --> A1["00-Emotion Map<br/>(Tonal Extremes & [Immutable Red Lines])"]
+        A1 --> A2["01-Character Profiles<br/>(5-Point Sensory Look & Core Motive)"]
+        A2 --> A3["02-Master Outline<br/>(Multi-Volume Arcs & 5-Layer Truths)"]
+        A3 --> A4["03-Foreshadowing Tracker<br/>(#001~#NNN Lifecycle)"]
     end
 
-    subgraph 战术单元 [L3: 战术作战单元]
-        B1[10章实施预案<br/>矛盾/温差/章末钩子] --> B2[人类创作者定调<br/>Plan Approval]
+    subgraph S2 [Stage 2: Tactical Unit Planning L3]
+        B1["10-Chapter Tactical Unit Plan<br/>(Core Conflict, Emotion Temp, Hooks, Clues)"] --> B2["Author Approval Gate<br/>(Align before drafting)"]
     end
 
-    subgraph 单章精雕 [L4: 导演级逐章推进]
-        C1[影视化六问落笔<br/>场景/道具/动作/物理距离] --> C2[三道质量门自检<br/>反AI腔/状态锁/钩子]
-        C2 --> C3[正式版正文落地<br/>2200-3000字]
-        C3 --> C4[Walkthrough复盘卡<br/>高光总结与下一章预告]
+    subgraph S3 [Stage 3: Cinematic Chapter Craftsmanship L4]
+        C1["Cinematographic Constitution<br/>(Scene Triage, Prop Physics, Micro-Actions)"] --> C2["Drafting Cadence<br/>(2,200 - 3,000 words / chapter)"]
     end
 
-    宏观地基 --> 战术单元 --> 单章精雕
+    subgraph S4 [Stage 4: Quality Gates & Living State Sync]
+        D1["Gate 1: Anti-AI Lexicon & Title Bans<br/>(Adverb zeroing, No name prefix titles)"] --> D2["Gate 2: Continuity & Wound Lock<br/>(No instant healing, Resource balancing)"]
+        D2 --> D3["Gate 3: Chapter Hook Tension<br/>(Compelling cliffhanger in final 5 lines)"]
+        D3 --> D4["Chapter Artifact Delivery<br/>(Formal Chapter .md + Walkthrough Card)"]
+    end
+
+    subgraph S5 [Stage 5: Milestone Retrospective]
+        E1{"Current 10-Chapter Unit Complete?"}
+        E1 -- No --> S3
+        E1 -- Yes --> E2["10-Chapter Retrospective Analysis<br/>(Audit against Emotion Map & Red Lines)"]
+        E2 --> S2
+    end
+
+    S1 --> S2 --> S3 --> S4 --> S5
 ```
 
 ---
 
-## 📂 仓库目录结构
+## 🔬 In-Depth Engineering Mechanisms
+
+### 1. Stage 1: Clarification & Macro Foundations
+Before any chapter text is written, the system enforces a PRD-style alignment:
+- **The Clarify Interview (`/clarify`)**: 5 precise questions covering protagonist core desire, narrative temperature, ending expectations, and non-negotiable boundaries.
+- **PRD Specification Tags**:
+  - `[Immutable Red Line]`: Non-negotiable rules (e.g., *Protagonist never compromises with abusers, strict conservation of combat energy*).
+  - `[Needs Clarification]`: Ambiguities to be resolved dynamically.
+  - `[Optional Feature]`: Secondary subplots and comic-relief elements.
+- **The 4 Foundation Files**:
+  1. `00-emotion-map.md`: Identifies the All-Is-Lost Moment, Pivot Point, and Climax.
+  2. `01-character-profile.md`: Establishes silhouette, facial signatures, tactile garment textures, hand details, and oppressive aura.
+  3. `02-master-outline.md`: Multi-volume strategy and escalating boss hierarchies.
+  4. `03-foreshadowing-tracker.md`: Numbered clues with lifecycle states: `Planted` $\rightarrow$ `Misdirected` $\rightarrow$ `Resolved`.
+
+### 2. Stage 2: Tactical Unit Planning (10 Chapters per Sprint)
+Long-form marathons collapse without pacing cadence. CWS enforces **10-Chapter Tactical Units**:
+- Pre-flight plan detailing each chapter's dramatic beat, emotional temperature (Cold / Tense / Tragic / Explosive), and hook.
+- Requires explicit user verification before entering Stage 3.
+
+### 3. Stage 3: Cinematic Chapter Craftsmanship
+Writing adheres to the **Cinematographic Constitution**:
+1. **Scene Triage (3-Question Rule)**: Every scene transition must answer within the first 3 sentences:
+   - *Where does the light come from?* (Direction, color temperature, shadow fragmentation).
+   - *What is the acoustic spatial scale?* (Confined stone corridor vs. endless howling desert).
+   - *What is in the micro-climate?* (Thermal shock, suspended soot, copper-sweet blood odor).
+2. **Prop Physics & Wear**: Props are never abstract nouns. They have weight, balance point, chipping notches, dried blood encrustations, and patina.
+3. **Slow-Motion Sliced Choreography**: High-stakes combat or confrontation is dissected frame-by-frame (inertia, bone vibrations, neuromuscular delay).
+4. **Physicalized Emotion**: Replaces abstract labels (*"he was terrified"*) with spatial distance adjustments and physiological compensations (*"his jaw clenched until teeth grated, knuckles whitening as fingers dug into rough linen"*).
+
+### 4. Stage 4: Triple Quality Gates & Anti-AI Auditing
+Before delivering a chapter, CWS subjects the text to three automated linting gates:
+- **Gate 1: Anti-AI Lexicon & Prefix Ban**:
+  - **Zero Tolerance Adverbs**: Scans and zeroes out `extremely`, `desperately`, `as if`, `incredibly`, `suddenly`, `unconsciously`.
+  - **Ban on Grandiose Title Prefixes**: Forbids tagging character names with decorative titles (e.g., banning *"The Peerless Swordmaster Xu Zheng looked cold"*; requiring *"Xu Zheng looked cold"*). Character status must be proven through action and surrounding reactions.
+  - **No Cliché Summaries**: Eradicates false profundities like *"This was not merely a strike, but..."*.
+- **Gate 2: Continuity & Wound Lock**:
+  - Validates that injuries sustained in prior chapters are not magically healed.
+  - Verifies travel resources, mounts, arrows, and physical stain persistence.
+- **Gate 3: Hook Tension**:
+  - Verifies that the final 5 lines establish high dramatic gravity (countdown, arrival of new adversary, lethal dilemma).
+- **Deliverables**: Outputs the formal chapter file along with a `walkthrough_XXX.md` audit card detailing character snapshots, sensory highlights, and foreshadowing updates.
+
+### 5. Stage 5: Unit Retrospective Analysis
+Every 10 chapters, the system conducts a comprehensive retrospective against `00-emotion-map.md` and `[Immutable Red Line]` constraints, preventing drift before proceeding to the next unit.
+
+---
+
+## 🎯 Benchmark: Vanilla LLM vs. Commercial Writing System
+
+| Scenario | Vanilla LLM Output (High "AI Voice") | CWS Output (Cinematic & Tangible) |
+| :--- | :--- | :--- |
+| **Execution Ground Rescue** | *"He was extremely shocked, as if struck by lightning. In the face of cruel enemies, he pulled out his sharp sword without hesitation, his heart burning with immense anger, vowing to save the girl."* | *"A pale sliver of winter daylight slashed down along the guillotine's blue steel edge. The masseter muscle in his jaw twitched violently. His right thumb clicked the hilt spring free—a sharp clink—and three inches of pattern-welded cold steel cleared the scabbard, kicking up a bitter reek of raw iron."* |
+| **Fighting While Wounded** | *"Although he was severely wounded, his unyielding willpower allowed him to unleash a devastating technique once again, scattering his terrified foes."* | *"The splint on his left tibia snapped with a sickening crunch of bone fragments grinding against muscle. He did not retreat. Reversing his grip on the fifty-pound horse-cleaver with his remaining sound arm, he rode the horse's downward momentum into a thunderous downward cleave."* |
+| **Army Standoff** | *"Both armies were massive and filled with terrifying killing intent. The air was thick with the scent of an impending, devastating war."* | *"Fifty thousand drawn compound bows formed a shimmering field of mirrored steel under the high noon sun. The gorge fell so quiet that the hiss of sand grains pattering onto dried brambles carried across the ranks, punctuated only by battle banners violently whipping in the carrion wind."* |
+
+---
+
+## 📂 Repository Structure
 
 ```text
 commercial-writing-system/
-├── SKILL.md                                # 核心技能入口（遵循 Agentic Skill 规范）
-├── README.md                               # 本项目说明书
-├── LICENSE                                 # MIT 开源协议
-├── references/                             # 核心方法论与权威规范
-│   ├── cinematographic-constitution.md     # 影视化写作宪法（场景三问、道具质感、慢动作）
-│   ├── anti-ai-lexicon.md                  # 反AI腔词汇黑名单与置换指南（永久封杀“极其/宛如”）
-│   ├── foreshadowing-tracker-spec.md       # 伏笔生命周期模型与活体状态追踪对账
-│   └── genre-playbooks.md                  # 主流赛道节拍手册（男频权谋/女频古言/知乎反转/微短剧）
-└── templates/                              # 开书工程脚手架模板
-    ├── 00-emotion-map.md                   # 情绪地图模板
-    ├── 01-character-profile.md             # 活体角色档案表模板
-    ├── 02-master-outline.md                # 四级骨架大纲模板（含五层真相法）
-    ├── 03-unit-plan-10ch.md                # 10章单元战术实施预案模板
-    └── 04-chapter-walkthrough.md           # 单章复盘与交付卡模板
+├── SKILL.md                                # Core Agentic Skill entrypoint
+├── README.md                               # English system documentation
+├── README_zh.md                            # Complete Chinese system documentation
+├── LICENSE                                 # MIT Open Source License
+├── references/                             # Foundational specifications & methodology
+│   ├── cinematographic-constitution.md     # Lighting vectors, acoustics, prop weight & micro-actions
+│   ├── anti-ai-lexicon.md                  # Strict keyword blacklist & humanized replacement guide
+│   ├── foreshadowing-tracker-spec.md       # Numbered clue lifecycle & living state audit rules
+│   └── genre-playbooks.md                  # Pacing playbooks (Historical power struggle, suspense, short drama)
+└── templates/                              # Production scaffolding templates
+    ├── 00-emotion-map.md                   # Emotion curves, extreme points & [Immutable Red Lines]
+    ├── 01-character-profile.md             # 5-element sensory character profile template
+    ├── 02-master-outline.md                # 4-tier outline & 5-layer truth peeling architecture
+    ├── 03-unit-plan-10ch.md                # 10-chapter tactical unit pre-flight plan
+    └── 04-chapter-walkthrough.md           # Chapter audit & walkthrough review card
 ```
 
 ---
 
-## 🚀 快速上手（Quick Start）
+## 🚀 Quick Start
 
-### 方式一：在 Antigravity / Claude Code 等 Agent 体系中安装
+### Option A: Install into Agent Runtimes (Antigravity / Claude Code / Codex / Cursor)
 
-直接将本项目克隆到你所在 Agent 运行时的自定义 Skill 目录下：
+Clone this repository into your runtime's custom skills directory:
 
 ```bash
-# Antigravity 默认技能路径：
+# Antigravity / Gemini CLI default skill path:
 cd ~/.gemini/config/skills/
-git clone https://github.com/YOUR_USERNAME/commercial-writing-system.git
+git clone https://github.com/egguy886/commercial-writing-system.git
+
+# Claude Code default tools / skills path:
+cd ~/.claude/skills/
+git clone https://github.com/egguy886/commercial-writing-system.git
 ```
 
-在对话中对 Agent 发送指令即可激活：
-> “使用**商业写作系统**，帮我开一本200章的历史权谋小说，核心设定是……”
+Activate the system in your prompt:
+> *"Using the **Commercial Writing System**, help me launch a 200-chapter historical power struggle novel. The core premise is..."*
 
-### 方式二：手动集成到任意小说项目
+The system will automatically trigger **Stage 1: Clarify Interview** with 5 tailored questions.
 
-1. 在你的小说项目根目录下，新建 `设定/` 文件夹。
-2. 将 `templates/` 下的文件复制到 `设定/` 中作为开书底盘：
-   - `设定/00-情绪地图.md`
-   - `设定/01-角色档案.md`
-   - `设定/02-大纲.md`
-   - `设定/03-伏笔追踪表.md`
-3. 按照 `templates/03-unit-plan-10ch.md` 规划第一个 10 章单元。
-4. 动笔时让 AI 严格读取 `references/cinematographic-constitution.md` 与 `references/anti-ai-lexicon.md`。
+### Option B: Manual Integration into Any Writing Workspace
 
----
-
-## 🎯 效果对比：原生 AI vs 商业写作系统
-
-| 场景 | 原生大模型直接生成（AI腔拉满） | 商业写作系统驱动（影视级质感） |
-| :--- | :--- | :--- |
-| **刑场救人** | “他心中极度震惊，宛如晴天霹雳。面对凶恶的敌人，他毫不犹豫地拔出了锋利的宝剑，心中充满了滔天的愤怒，誓要拯救眼前的女子。” | “一缕惨白的日光顺着闸刀的青刃斜劈下来。他下颌咬肌猛地一突，右手拇指顶开簧锁，‘铮’的一声脆响，百炼折叠锻打的花纹钢出鞘三寸，激起一股冰冷的铁腥。” |
-| **伤后战斗** | “虽然他身负重伤，但他凭借顽强的意志力，再次施展出排山倒海的绝招，杀得敌人落荒而逃。” | “他左腿夹板崩断，断骨在肌肉里发出令人牙酸的摩擦声。他没有后退，右臂单手倒提百斤斩马刀，借着战马俯冲的惯性，自上而下一记暴烈的硬砸！” |
-| **两军对峙** | “两支大军阵容浩大，杀气腾腾，战争一触即发。” | “五万张强弓硬弩在阳光下汇成一片反光的银色海洋。四下静得连黄沙落在枯叶上的沙沙声都听得一清二楚，只有战旗在腥风里被抽打得啪啪作响。” |
+1. In your project workspace, create a `settings/` (or `设定/`) directory.
+2. Copy the templates from `templates/` into your `settings/` folder:
+   - `00-emotion-map.md`
+   - `01-character-profile.md`
+   - `02-master-outline.md`
+   - `03-foreshadowing-tracker.md`
+3. Plan your first 10 chapters using `templates/03-unit-plan-10ch.md`.
+4. Instruct your AI agent to strictly enforce `references/cinematographic-constitution.md` and `references/anti-ai-lexicon.md` during chapter drafting.
 
 ---
 
-## 🛠️ 三道质量门自检体系
+## 📄 License
 
-每一章输出后，系统内置了严苛的质量门验收：
-
-- **第一门：语言去油门** —— 扫描全文，严查“极其、极度、宛如、简直、仿佛、赫然、不禁、不仅……更是……”，不达标自动退回重修。
-- **第二门：物理连续门** —— 伤情是否有物理限制？随身干粮与水囊数量是否闭环？衣着泥垢是否符合当前天气？
-- **第三门：末行悬念门** —— 最后五行是否具备强钩子？拒绝平淡收束，必须让读者本能想翻开下一章。
-
----
-
-## 📄 开源许可证
-
-本项目基于 [MIT License](LICENSE) 开源。欢迎所有网络作家、编剧、独立游戏开发者及 AI 创作者自由使用、魔改与分发。
+Distributed under the [MIT License](LICENSE). Open for authors, screenwriters, indie developers, and AI engineers to adapt, expand, and commercialize freely.
