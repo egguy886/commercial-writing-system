@@ -11,7 +11,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Version-v1.2.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Version-v1.3.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/Runtime-Antigravity%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor-orange.svg" alt="Runtime">
   <img src="https://img.shields.io/badge/Focus-Anti--AI%20%26%20Cinematography-red.svg" alt="Focus">
 </p>
@@ -103,14 +103,19 @@ Long-form marathons collapse without pacing cadence. CWS enforces **10-Chapter T
 - Requires explicit user verification before entering Stage 3.
 
 ### 3. Stage 3: Cinematic Chapter Craftsmanship
-Writing adheres to the **Cinematographic Constitution**:
-1. **Scene Triage (3-Question Rule)**: Every scene transition must answer within the first 3 sentences:
-   - *Where does the light come from?* (Direction, color temperature, shadow fragmentation).
-   - *What is the acoustic spatial scale?* (Confined stone corridor vs. endless howling desert).
-   - *What is in the micro-climate?* (Thermal shock, suspended soot, copper-sweet blood odor).
-2. **Prop Physics & Wear**: Props are never abstract nouns. They have weight, balance point, chipping notches, dried blood encrustations, and patina.
-3. **Slow-Motion Sliced Choreography**: High-stakes combat or confrontation is dissected frame-by-frame (inertia, bone vibrations, neuromuscular delay).
-4. **Physicalized Emotion**: Replaces abstract labels (*"he was terrified"*) with spatial distance adjustments and physiological compensations (*"his jaw clenched until teeth grated, knuckles whitening as fingers dug into rough linen"*).
+Never draft in a vacuum. CWS strictly mandates **Pre-Flight Triad Checks** alongside the **Cinematographic Constitution**:
+1. **The Pre-Drafting Triple-Read**:
+   - *Read 1 (Continuity)*: Reads the final 500 words and `walkthrough_XXX.md` of Chapter N-1 to lock temporal flow, physical wounds, and emotional reverberations.
+   - *Read 2 (Tactical Plan)*: Reads the tactical unit breakdown to pinpoint the chapter's breakthrough mission, emotional temperature, and mandatory cliffhanger.
+   - *Read 3 (Macro Alignment)*: Audits against the master outline and `[Immutable Red Lines]` to prevent narrative drifting and OOC regressions.
+2. **The Director's Mindset (Blocking & Lens Discipline)**:
+   - *POV Anchor*: Camera is physically welded to the perspective character's sensory radius. Zero crossing-the-line or omniscient narrator intrusions.
+   - *Proxemics (Distance as Power)*: Measures initial physical distance (meters/inches). Who advances? Who yields? Spatial shifts reflect the psychological struggle.
+   - *Subtext Layering*: Spoken dialogue (Text) is sharply divorced from unspoken desires (Subtext), letting micro-actions carry the true stakes.
+3. **Scene Triage (3-Question Rule)**: Every transition must answer within the first 3 sentences: light source/vector, acoustic space, and micro-climate.
+4. **Prop Physics & Wear**: Props carry weight, balance, notches, dried blood, and patina.
+5. **Slow-Motion Sliced Choreography**: High-stakes action dissected into frame-by-frame physiological and kinetic reactions.
+6. **Physicalized Emotion**: Converts abstract feelings into physical retreats, bitten lips, clenched jaws, and dysregulated breathing.
 
 ### 4. Stage 4: Triple Quality Gates & Anti-AI Auditing
 Before delivering a chapter, CWS subjects the text to three automated linting gates:

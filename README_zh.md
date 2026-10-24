@@ -11,7 +11,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Version-v1.2.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Version-v1.3.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/Runtime-Antigravity%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor-orange.svg" alt="Runtime">
   <img src="https://img.shields.io/badge/Focus-Anti--AI%20%26%20Cinematography-red.svg" alt="Focus">
 </p>
@@ -103,14 +103,19 @@ flowchart TD
 - 必须经过人类创作者确认后，方可启动本单元的逐章撰写。
 
 ### 3. 阶段三：单章影视化精雕（Cinematic Craftsmanship）
-严格遵循《影视化写作宪法》：
-1. **场景建立三问（Scene Triage）**：场景切换或新幕拉开，前三句内必须完成视听建模：
-   - *光从哪里来？*（冷暖光性、入射角度、明暗切割）。
-   - *空间尺度有多大？*（逼仄密室与回声声学、浩渺风沙荒原）。
-   - *微环境里有什么？*（温差与哈气、漂浮尘埃、血腥氧化铁锈味、木料焦糊味）。
-2. **重要道具质感与战损**：拒绝塑料感。生铁的冷脆、玄铁的沉重、玉石的糯性与断口晶体；卷刃崩口与油脂包浆。
-3. **动作慢镜头切片**：刀锋切入铠甲的受力形变、手腕震麻、受击后神经失真与痛感延迟等生理代偿。
-4. **情感物理化呈现**：严禁“他极度愤怒/她十分悲伤”。必须转化为两人物理间距的退缩、下唇咬穿、手指攥紧发白与呼吸节律骤乱。
+拒绝“闭门造车”与“章节割裂”，严格执行**动笔前预检**与《影视化写作宪法》：
+1. **写前三读（The Pre-Drafting Triple-Read）**：
+   - *读 1 承接上章*：读第 N-1 章末尾 500 字与 Walkthrough 快照，锁定时间线、伤情与微表情余波。
+   - *读 2 对标细纲*：读本单元细纲，锁定本章破局任务、情绪温差、伏笔清单与必留 Cliffhanger。
+   - *读 3 俯瞰大纲红线*：对齐全书三幕节拍，严防人设崩坏与破戒。
+2. **导演机位调度（The Director's Mindset）**：
+   - *POV 机位定焦*：镜头严格绑定在主角感官半径，严禁越轴与上帝视角。
+   - *物理站位与身体距离（Proxemics）*：开场几米？谁在迫近？谁在后撤？距离变化即权力博弈。
+   - *潜台词分层（Subtext）*：表面台词（Text）与冰山下真实欲望（Subtext）割裂，全靠眼神与微动作博弈。
+3. **场景建立三问（Scene Triage）**：场景切换或新幕拉开，前三句内必须完成视听建模（光从哪里来、空间尺度多大、微环境有什么）。
+4. **重要道具质感与战损**：生铁冷脆、玉石熟糯、卷刃崩口与包浆，拒绝塑料感。
+5. **动作慢镜头切片**：刀锋受力形变、手腕震麻、痛感延迟等生理代偿。
+6. **情感物理化呈现**：严禁“他很愤怒”，必须转化为物理退缩、下唇咬穿、咬肌突起与呼吸紊乱。
 
 ### 4. 阶段四：三道质量门与反 AI 审查（Quality Gates）
 每章生成完毕，必须通过三道严苛门禁方可交付：
