@@ -11,7 +11,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Version-v1.1.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Version-v1.2.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/Runtime-Antigravity%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor-orange.svg" alt="Runtime">
   <img src="https://img.shields.io/badge/Focus-Anti--AI%20%26%20Cinematography-red.svg" alt="Focus">
 </p>
@@ -37,19 +37,26 @@ The **Commercial Writing System** deconstructs a master novelist's intuition int
 
 ```mermaid
 flowchart TD
-    subgraph S1 [Stage 1: Clarification & Macro Foundations L1-L2]
-        A0["Clarify Interview<br/>(5 Targeted Questions: Desires, Pace, Ending, Red Lines)"] --> A1["00-Emotion Map<br/>(Tonal Extremes & [Immutable Red Lines])"]
-        A1 --> A2["01-Character Profiles<br/>(5-Point Sensory Look & Core Motive)"]
-        A2 --> A3["02-Master Outline<br/>(Multi-Volume Arcs & 5-Layer Truths)"]
-        A3 --> A4["03-Foreshadowing Tracker<br/>(#001~#NNN Lifecycle)"]
+    G0{"【Gate 0: Pre-flight Hard Gate】<br/>Do the 6 Foundation Files in setting/ & outline/ exist?"}
+    G0 -- Any missing --> S1
+    S1 --> G0
+    G0 -- All 6 files fully verified --> S2
+
+    subgraph S1 [Stage 1: Clarification & 6-Pillar Foundations L1-L2]
+        A0["Clarify Interview<br/>(5 Core Questions: Desires, Pace, Ending, Red Lines)"] --> A1["00-Emotion Map & Red Lines<br/>(Tonal Extremes & [Immutable Red Lines])"]
+        A1 --> A2["01-Character Profiles & Asset Ledger<br/>(5-Point Look, Motives, Voice Bible)"]
+        A2 --> A3["02-Worldbuilding & Social Hierarchy<br/>(Dual Settings, Power Structure, Anti-Plothole Rules)"]
+        A3 --> A4["03-Relationship Matrix & Factions<br/>(Visual Mermaid Diagram & Tension Web)"]
+        A4 --> A5["04-Foreshadowing & Props Ledger<br/>(#PROP-01~NNN Lifecycle Tracking)"]
+        A5 --> A6["00-Master Outline<br/>(Multi-Volume Arcs, 3-Act Beats, 5-Layer Truths)"]
     end
 
     subgraph S2 [Stage 2: Tactical Unit Planning L3]
-        B1["10-Chapter Tactical Unit Plan<br/>(Core Conflict, Emotion Temp, Hooks, Clues)"] --> B2["Author Approval Gate<br/>(Align before drafting)"]
+        B1["10-15 Chapter Tactical Unit Plan<br/>(Core Conflict, Emotion Temp, Micro-Hooks, Clues)"] --> B2["Author Approval Gate<br/>(Align before drafting)"]
     end
 
     subgraph S3 [Stage 3: Cinematic Chapter Craftsmanship L4]
-        C1["Cinematographic Constitution<br/>(Scene Triage, Prop Physics, Micro-Actions)"] --> C2["Drafting Cadence<br/>(2,200 - 3,000 words / chapter)"]
+        C1["Cinematographic Constitution<br/>(Scene Triage, Prop Physics, Micro-Actions)"] --> C2["Drafting Cadence<br/>(1,500 - 3,000 words / chapter)"]
     end
 
     subgraph S4 [Stage 4: Quality Gates & Living State Sync]
@@ -59,31 +66,36 @@ flowchart TD
     end
 
     subgraph S5 [Stage 5: Milestone Retrospective]
-        E1{"Current 10-Chapter Unit Complete?"}
+        E1{"Current Tactical Unit Complete?"}
         E1 -- No --> S3
-        E1 -- Yes --> E2["10-Chapter Retrospective Analysis<br/>(Audit against Emotion Map & Red Lines)"]
+        E1 -- Yes --> E2["Tactical Unit Retrospective Analysis<br/>(Audit against Emotion Map, World Rules & Red Lines)"]
         E2 --> S2
     end
 
-    S1 --> S2 --> S3 --> S4 --> S5
+    S2 --> S3 --> S4 --> S5
 ```
 
 ---
 
 ## 🔬 In-Depth Engineering Mechanisms
 
-### 1. Stage 1: Clarification & Macro Foundations
+### 1. Gate 0: Pre-flight Hard Gate
+> **Eradicating LLM's "People-Pleasing Skip Syndrome"**: Vanilla AI assistants often rush to dump out an ungrounded Chapter 1 draft, completely bypassing foundational worldbuilding. CWS v1.2.0 introduces an uncompromising pre-flight gate: when prompted to "start writing" or "generate Chapter 1", the agent **is strictly blocked** from generating prose until it has verified that all 6 Foundation Files exist on disk.
+
+### 2. Stage 1: Clarification & 6-Pillar Foundations
 Before any chapter text is written, the system enforces a PRD-style alignment:
 - **The Clarify Interview (`/clarify`)**: 5 precise questions covering protagonist core desire, narrative temperature, ending expectations, and non-negotiable boundaries.
 - **PRD Specification Tags**:
-  - `[Immutable Red Line]`: Non-negotiable rules (e.g., *Protagonist never compromises with abusers, strict conservation of combat energy*).
+  - `[Immutable Red Line]`: Non-negotiable rules (e.g., *Protagonist never compromises with abusers, clear consent in romance, strict conservation of combat energy*).
   - `[Needs Clarification]`: Ambiguities to be resolved dynamically.
   - `[Optional Feature]`: Secondary subplots and comic-relief elements.
-- **The 4 Foundation Files**:
-  1. `00-emotion-map.md`: Identifies the All-Is-Lost Moment, Pivot Point, and Climax.
-  2. `01-character-profile.md`: Establishes silhouette, facial signatures, tactile garment textures, hand details, and oppressive aura.
-  3. `02-master-outline.md`: Multi-volume strategy and escalating boss hierarchies.
-  4. `03-foreshadowing-tracker.md`: Numbered clues with lifecycle states: `Planted` $\rightarrow$ `Misdirected` $\rightarrow$ `Resolved`.
+- **The 6 Mandatory Foundation Files (Zero-Prose Gate)**:
+  1. `setting/00-emotion-map.md`: Identifies the All-Is-Lost Moment, Pivot Point, and Climax.
+  2. `setting/01-character-profile.md`: Establishes silhouette, facial signatures, tactile garment textures, hand details, and Voice Bible.
+  3. `setting/02-worldbuilding-rules.md` (**New in v1.2.0**): Dual spatial metaphors (sanctuary vs. power arena), institutional hierarchy, financial/legal anti-plothole rules.
+  4. `setting/03-relationship-matrix-mermaid.md` (**New in v1.2.0**): Visual Mermaid relationship and secret identity network, dynamic tension dimensions.
+  5. `setting/04-foreshadowing-props-ledger.md`: Numbered clues with lifecycle states: `Planted` $\rightarrow$ `Misdirected` $\rightarrow$ `Resolved`.
+  6. `outline/00-master-outline.md`: Multi-volume strategy and escalating boss hierarchies.
 
 ### 2. Stage 2: Tactical Unit Planning (10 Chapters per Sprint)
 Long-form marathons collapse without pacing cadence. CWS enforces **10-Chapter Tactical Units**:
