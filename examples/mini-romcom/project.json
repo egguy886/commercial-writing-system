@@ -1,0 +1,13 @@
+{
+  "schema": 2,
+  "title": "The Apology Invoice（示例）",
+  "mode": "new",
+  "style": "en-romcom",
+  "platform": "en-app-serial",
+  "chapters": {"glob": "chapters/ch-*.md", "number_regex": "(\\d+)"},
+  "multi_agent": {"enabled": true},
+  "allow_names": ["Marlowe", "Bakery"],
+  "extra_banned": [{"term": "Bentley", "note": "这本书不写这个车"}],
+  "disable_banned": [],
+  "overrides": {"length": {"min": 60, "max": 200, "tolerance": 0.2}, "threads": {"max_gap": 3}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": 2,
+  "threads": [
+    {"id": "T1", "name": "brass key", "kind": "prop", "planted": 1, "payoff_by": 4},
+    {"id": "T2", "name": "谁在护着这家面包店", "kind": "question", "planted": 1, "max_gap": 1}
+  ]
+}

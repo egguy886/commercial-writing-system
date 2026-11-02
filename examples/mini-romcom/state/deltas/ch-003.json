@@ -1,0 +1,21 @@
+{
+  "chapter": 3,
+  "batch": "B001",
+  "writer": "writer-a",
+  "canon_hash": "4ceaf6a3fed1",
+  "story_day": 2,
+  "pov": [
+    "dana"
+  ],
+  "summary": "对质，被撞见",
+  "threads": [
+    {
+      "id": "T2",
+      "action": "advanced"
+    }
+  ],
+  "hook": {
+    "type": "caught",
+    "strength": 4
+  }
+}

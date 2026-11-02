@@ -1,0 +1,8 @@
+{
+  "schema": 2,
+  "locations": [
+    {"id": "office", "name": "Harlow & Pike", "aliases": ["the office"], "note": "审计所，全书不变",
+     "deprecated_names": [{"name": "Apex Tower", "note": "旧稿地点"}]}
+  ],
+  "retired": []
+}

@@ -1,0 +1,11 @@
+{
+  "schema": 2,
+  "characters": [
+    {"id": "dana", "name": "Dana Cho", "aliases": ["Dana", "Ms. Cho"], "age": 29, "role": "女主，审计师", "voice": "精确，带刺",
+     "former_names": [{"name": "Danielle", "chapters": "3", "note": "只有她母亲在第 3 章的电话里这样叫"}]},
+    {"id": "theo", "name": "Theo Marsh", "aliases": ["Theo"], "age": 33, "role": "男主，CFO", "voice": "干冷，短句",
+     "deprecated_names": [{"name": "Greg", "replaced_by": "Theo Marsh", "note": "旧稿的名字"}]},
+    {"id": "priya", "name": "Priya Nair", "aliases": ["Priya"], "age": 30, "role": "女主同事"}
+  ],
+  "retired": [{"name": "Marcus", "note": "旧稿人物，已删除"}]
+}

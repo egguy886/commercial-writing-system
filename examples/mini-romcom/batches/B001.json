@@ -1,0 +1,10 @@
+{
+  "id": "B001",
+  "chapters": "1-4",
+  "writer": "writer-a",
+  "reviewer": "reviewer-b",
+  "ledger_keeper": "keeper-c",
+  "canon_hash": "4ceaf6a3fed1",
+  "status": "review",
+  "review_passed_by": "reviewer-b"
+}

@@ -1,0 +1,18 @@
+{
+  "schema": 2,
+  "facts": [
+    {
+      "id": "F1",
+      "statement": "匿名短信是 Theo 发的",
+      "knowers": [
+        {"who": "theo", "level": "knows", "chapter": 1, "how": "他发的"},
+        {"who": "dana", "level": "suspects", "chapter": 2, "how": "短信的标点习惯"},
+        {"who": "dana", "level": "knows", "chapter": 4, "how": "他亲口承认"}
+      ],
+      "public_at": 4,
+      "contradiction_patterns": [
+        {"pattern": "(?:nobody|no one) (?:knew|knows) (?:who|about)", "from": 5, "note": "第 4 章已当众公开"}
+      ]
+    }
+  ]
+}

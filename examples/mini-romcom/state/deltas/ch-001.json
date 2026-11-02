@@ -1,0 +1,31 @@
+{
+  "chapter": 1,
+  "batch": "B001",
+  "writer": "writer-a",
+  "canon_hash": "4ceaf6a3fed1",
+  "story_day": 1,
+  "pov": [
+    "dana"
+  ],
+  "summary": "查出发票，收到短信",
+  "characters": {
+    "dana": {
+      "location": "office",
+      "condition": "正常"
+    }
+  },
+  "threads": [
+    {
+      "id": "T1",
+      "action": "planted"
+    },
+    {
+      "id": "T2",
+      "action": "planted"
+    }
+  ],
+  "hook": {
+    "type": "message",
+    "strength": 3
+  }
+}

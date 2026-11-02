@@ -1,0 +1,40 @@
+{
+  "chapter": 4,
+  "batch": "B001",
+  "writer": "writer-a",
+  "canon_hash": "4ceaf6a3fed1",
+  "story_day": 2,
+  "pov": [
+    "dana"
+  ],
+  "summary": "Theo 当众承认",
+  "knowledge": [
+    {
+      "fact": "F1",
+      "who": "dana",
+      "level": "knows"
+    },
+    {
+      "fact": "F1",
+      "who": "*"
+    }
+  ],
+  "props": [
+    {
+      "id": "key",
+      "from": "dana",
+      "holder": "theo",
+      "state": "已交回"
+    }
+  ],
+  "threads": [
+    {
+      "id": "T1",
+      "action": "resolved"
+    },
+    {
+      "id": "T2",
+      "action": "advanced"
+    }
+  ]
+}

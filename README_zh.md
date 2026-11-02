@@ -1,207 +1,181 @@
-# 商业写作系统 | Commercial Writing System (CWS)
+# 商业写作系统（Commercial Writing System）
 
-<p align="center">
-  <strong>专为中长篇连载小说、高能短剧与爆款网文打造的工业化专业创作引擎</strong>
-</p>
+用 AI 写长篇连载和短剧的流水线。它把最容易写崩的部分交给机器检查：人物改名、引号丢失、秘密被清零、伏笔烂尾、章尾没钩子。
 
-<p align="center">
-  <a href="README.md">English</a> •
-  <a href="README_zh.md">简体中文</a>
-</p>
+[English](README.md) • [简体中文](README_zh.md)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Version-v1.3.0-blue.svg" alt="Version">
-  <img src="https://img.shields.io/badge/Runtime-Antigravity%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor-orange.svg" alt="Runtime">
-  <img src="https://img.shields.io/badge/Focus-Anti--AI%20%26%20Cinematography-red.svg" alt="Focus">
-</p>
+![License](https://img.shields.io/badge/License-MIT-green.svg) ![Version](https://img.shields.io/badge/Version-v2.0.0-blue.svg) ![Python](https://img.shields.io/badge/Python-3.8%2B%20%E6%97%A0%E4%BE%9D%E8%B5%96-orange.svg)
 
----
+## 为什么有 v2
 
-## 📖 核心痛点：为什么原生大模型写不好长篇小说？
+v1 的规则全写在文字里，全靠模型自觉遵守。写到几万字后，模型会忘，上下文一滑就开始出错。v1 的风格规则还偏中文古言，用到英语爱情喜剧上就用力过猛。
 
-直接让大语言模型（LLM）写长篇小说，99% 会在 3~5 万字之内迅速崩坏，陷入 AI 写作的**四大绝症**：
+| 长篇常见的问题 | v2 的做法 |
+|---|---|
+| 人物中途改名，旧名复活 | 正典记录现用名、废弃名和曾用名，脚本扫描正文 |
+| 对白引号丢失，格式混乱 | 脚本检查引号格式、配对和疑似丢引号的对白 |
+| 公开过的事又变成秘密 | 正典写明谁在第几章知道什么，增量和正典对不上就报错 |
+| 结局和开头矛盾 | 把不能再出现的说法写进正典，脚本拦截 |
+| 章尾写总结句，没有钩子 | 细纲必须填钩子类型和强度，脚本查章尾和下章开头 |
+| 伏笔埋了就忘 | 伏笔账本自动算间隔，超期报错 |
+| 一套文风规则套所有书 | 风格和平台都是可插拔的配置 |
+| 换一个 agent 就换一套规矩 | 只有一份 `AGENTS.md`，所有平台都指向它 |
 
-| 绝症症状 | 产生原因 | 商业写作系统（CWS）工业破局方案 |
-| :--- | :--- | :--- |
-| **悬浮虚假（假大空、AI味浓）** | 充斥“极其、极度、宛如、不禁、不由得”等廉价副词，喜欢贴标签和说明性心理概述，缺乏真实物理感官。 | **影视化写作宪法**：场景建立三问（光影/空间尺度/空气微环境）、关键道具重量与岁月战损、微动作帧级切片。 |
-| **机械降神（战力失控、神级自愈）** | 模型缺乏物理约束与因果链，遇到困境强行瞬愈、天降奇兵或爆种。 | **活体状态对账与伤情锁定**：上一章受过的断骨烧伤必须物理锁定几十天；随行干粮、水囊与箭矢严格对账。 |
-| **失控烂尾（前写后忘、线索悬空）** | 上下文窗口滑动导致重要配角蒸发、伏笔悬空无着落。 | **伏笔编号生命周期管理**：全书悬念强制编号（`#001`~`#NNN`），经历【已埋设 $\rightarrow$ 推进/误导 $\rightarrow$ 回收兑现】严密闭环。 |
-| **黑盒跳步（快餐粗糙、节奏崩塌）** | 一次性指令生成大几千字粗坯，跳过关键冲突积累，情绪曲线扁平。 | **4阶段工业化流水线**：前置5问需求澄清，10章战术单元先行，一章一磨，三道质量门严格卡点。 |
+## 快速开始
 
----
-
-## 🏛️ 系统架构与工作原理（Architecture & Workflow）
-
-商业写作系统将顶级职业写手与编剧的创作直觉，解构为一套**确定性、可量化、防崩塌的工业化流水线**：
-
-```mermaid
-flowchart TD
-    G0{"【门禁0: 前置基石硬阻断】<br/>设定/ 与 大纲/ 6份文件是否存在?"}
-    G0 -- 缺失任一文件 --> S1
-    S1 --> G0
-    G0 -- 6份基石全量就绪 --> S2
-
-    subgraph S1 [阶段一: 5问澄清与六大强制基石地基 L1-L2]
-        A0["Clarify 5问需求澄清<br/>(核心欲求 / 节奏温差 / 终局形态 / [核心红线])"] --> A1["00-情绪地图与创作红线<br/>(三极值点: 至暗时刻/惊天反转/终极绝顶)"]
-        A1 --> A2["01-角色档案与战力账本<br/>(定妆五要素 / 动机核 / 台词辨识度Voice Bible)"]
-        A2 --> A3["02-世界观与社会阶层规则<br/>(空间两极隐喻 / 权力架构 / 法律与反挑刺防火墙)"]
-        A3 --> A4["03-人物关系与阵营图<br/>(Mermaid高密度可视化 / 对峙与猎杀反转网络)"]
-        A4 --> A5["04-伏笔与道具追踪表<br/>(#PROP-01~NNN 编号全生命周期追踪)"]
-        A5 --> A6["00-全书卷轴战略总表<br/>(分卷战略 / 三幕节拍 / 阶梯对标Boss / 五层真相剥茧)"]
-    end
-
-    subgraph S2 [阶段二: 10-15章战术单元预案 L3]
-        B1["战术单元实施预案<br/>(逐章破局任务 / 情绪温差 / 微钩子矩阵 / 伏笔推进清单)"] --> B2["人类创作者定调确认<br/>(确认方向无误后进入正文)"]
-    end
-
-    subgraph S3 [阶段三: 单章影视化精雕 L4]
-        C1["影视化宪法落笔<br/>(场景建立三问 / 道具质感 / 慢镜头动作 / 距离代偿)"] --> C2["正文起步推进<br/>(单章保持 1500-3000 字)"]
-    end
-
-    subgraph S4 [阶段四: 三道质量门与活体对账]
-        D1["门禁1: 反AI腔与称号封杀<br/>(高危副词清零 / 严禁浮夸称号前缀)"] --> D2["门禁2: 活体状态连续性<br/>(伤情物理锁定 / 资源消耗闭环)"]
-        D2 --> D3["门禁3: 章末末行张力<br/>(最后5行强拉扯钩子)"]
-        D3 --> D4["规范产物交付<br/>(正式正文 .md + Walkthrough复盘卡)"]
-    end
-
-    subgraph S5 [阶段五: 战术单元复盘]
-        E1{"当前单元10-15章完成?"}
-        E1 -- 否 --> S3
-        E1 -- 是 --> E2["战术单元回溯体检<br/>(对照情绪地图、世界观规则与[核心红线]验偏)"]
-        E2 --> S2
-    end
-
-    S2 --> S3 --> S4 --> S5
+```bash
+git clone https://github.com/egguy886/commercial-writing-system.git ~/.gemini/config/skills/commercial-writing-system
 ```
 
----
+先确认工具能跑：
 
-## 🔬 工业级核心机制深度解析
+```bash
+python3 ~/.gemini/config/skills/commercial-writing-system/scripts/selftest.py
+```
 
-### 1. 门禁 0：前置基石硬阻断门禁（Hard Pre-flight Gate）
-> **彻底根除大模型的“讨好型跳步病”**：大模型往往急于向用户交付粗制滥造的正文第 1 章，直接跳过地基阶段。CWS v1.2.0 加入了硬门禁校验机制——当用户提出“开写”、“输出第一章”等指令时，AI **严禁直接写正文**，必须先自主检索工作区中六大基石文件是否完备。缺失任意一份，强制阻断并提示创作者补齐。
+为一本书建项目：
 
-### 2. 阶段一：需求澄清与六大强制基石地基（Clarification & 6-Pillar Foundations）
-在生成设定和大纲前，杜绝粗暴跳步，严格执行 PRD 规格对齐：
-- **交互式 5 问澄清（Clarify Interview）**：围绕核心驱动力（复仇/生存/解密/守护）、叙事温差、终局取向与创作红线展开精准提问。
-- **PRD 规格与红线标记**：
-  - `[核心红线]`：不可妥协的底线（如：主角绝不圣母、亲密戏必须明确同意 Clear Consent、战力数值严格守恒）。
-  - `[需要澄清]`：待后续推进中敲定的开放性决策。
-  - `[可选特性]`：锦上添花的情节点或轻喜剧调节支线。
-- **六大基石资产（缺一不可动笔）**：
-  1. `设定/00-情绪地图与创作红线.md`：绘制全书心流曲线，锚定至暗时刻（50%~60%）、惊天反转（65%~75%）、终极绝顶（90%~95%）。
-  2. `设定/01-角色档案与战力账本.md`：立足定妆五要素（体型轮廓、面部特征、服装材质、手部细节、压迫气场）、动机核心与台词辨识度（Voice Bible）。
-  3. `设定/02-世界观与社会阶层规则.md`（**v1.2.0 新增**）：空间两极隐喻（原生避风港 vs 权力名利场）、组织阶层架构、经济/法律/战力兑换比反挑刺防火墙（Anti-Plothole）。
-  4. `设定/03-人物关系与阵营图.md`（**v1.2.0 新增**）：高信息密度 Mermaid 关系图、对峙维度、隐藏马甲网络、双向猎杀反转链。
-  5. `设定/04-伏笔与道具生命周期追踪表.md`：编号线索与信物生命周期（`#PROP-01`~`#PROP-NNN`，埋设 $\rightarrow$ 递进/误导 $\rightarrow$ 回收兑现）。
-  6. `大纲/00-全书卷轴战略总表.md`：分卷战略目标与五层真相递进（表象事实 $\rightarrow$ 伪动机 $\rightarrow$ 组织阴谋 $\rightarrow$ 历史原罪 $\rightarrow$ 核心人性真相）。
+```bash
+python3 ~/.gemini/config/skills/commercial-writing-system/scripts/cws.py init ~/books/my-book --mode new --style en-romcom --platform en-app-serial
+```
 
-### 2. 阶段二：战术作战单元（10-Chapter Tactical Unit）
-避免“盲目长跑导致中途塌陷”。以 **10 章为一个敏捷作战单元**：
-- 提前输出 10 章实施预案，明确逐章事件推进、情绪温差（冷/燃/虐/悬）、章末钩子与待推进伏笔。
-- 必须经过人类创作者确认后，方可启动本单元的逐章撰写。
+然后在 agent 里打开这个目录，说“用商业写作系统开始这本书”。
 
-### 3. 阶段三：单章影视化精雕（Cinematic Craftsmanship）
-拒绝“闭门造车”与“章节割裂”，严格执行**动笔前预检**与《影视化写作宪法》：
-1. **写前三读（The Pre-Drafting Triple-Read）**：
-   - *读 1 承接上章*：读第 N-1 章末尾 500 字与 Walkthrough 快照，锁定时间线、伤情与微表情余波。
-   - *读 2 对标细纲*：读本单元细纲，锁定本章破局任务、情绪温差、伏笔清单与必留 Cliffhanger。
-   - *读 3 俯瞰大纲红线*：对齐全书三幕节拍，严防人设崩坏与破戒。
-2. **导演机位调度（The Director's Mindset）**：
-   - *POV 机位定焦*：镜头严格绑定在主角感官半径，严禁越轴与上帝视角。
-   - *物理站位与身体距离（Proxemics）*：开场几米？谁在迫近？谁在后撤？距离变化即权力博弈。
-   - *潜台词分层（Subtext）*：表面台词（Text）与冰山下真实欲望（Subtext）割裂，全靠眼神与微动作博弈。
-3. **场景建立三问（Scene Triage）**：场景切换或新幕拉开，前三句内必须完成视听建模（光从哪里来、空间尺度多大、微环境有什么）。
-4. **重要道具质感与战损**：生铁冷脆、玉石熟糯、卷刃崩口与包浆，拒绝塑料感。
-5. **动作慢镜头切片**：刀锋受力形变、手腕震麻、痛感延迟等生理代偿。
-6. **情感物理化呈现**：严禁“他很愤怒”，必须转化为物理退缩、下唇咬穿、咬肌突起与呼吸紊乱。
+## 工作模式
 
-### 4. 阶段四：三道质量门与反 AI 审查（Quality Gates）
-每章生成完毕，必须通过三道严苛门禁方可交付：
-- **门禁 1：反 AI 腔与词汇过滤器（Anti-AI Gate）**：
-  - **副词清零**：严厉排查并清零 `极其`、`极度`、`简直`、`宛如`、`仿佛`、`毫无疑问`、`分外` 等通胀副词。
-  - **绝对封杀浮夸称号人名前缀**：严禁在名字前堆砌称号（如“*天下第一剑修许正*”、“*北境狼王元野*”、“*绝世神医林辰*”）。直接称呼姓名，靠行动与他人反应彰显威慑。
-  - **结构性去油**：彻底铲除“不仅……更是……”、“眼神闪过一丝……”、“嘴角勾起一抹……”等网文套话。
-- **门禁 2：活体状态连续性检查（Continuity Gate）**：
-  - 伤情物理锁定（骨折、烧伤严禁跨章“神级瞬愈”）。
-  - 资源对账（干粮、水袋、箭矢、马匹、银两消耗实打实闭环）。
-- **门禁 3：章末钩子张力（Hook Gate）**：
-  - 最后 5 行必须具备强张力（新危机逼近、倒计时滴答、核心秘密漏缝、生死抉择）。
-- **交付产物**：正式正文文件 + `walkthrough_XXX.md`（复盘卡，记录高光切片、伤情物资变动与下章预告）。
+| 模式 | 什么时候用 | 开工前要有 |
+|---|---|---|
+| `new` 新书 | 从零开始 | 澄清问答、情绪地图、世界规则、关系图、大纲、正典、细纲 |
+| `continue` 续写 | 接着已有正文写 | 续写说明、回填的正典、细纲 |
+| `rewrite` 改写/改编 | 修改稿子或换形式 | 改写说明、正典（含废弃名）、细纲。不用重走开书流程 |
 
-### 5. 阶段五：战术单元复盘与体检（Unit Retrospective）
-每 10 章完成后，系统自动对照 `00-情绪地图.md` 与 `[核心红线]` 进行偏离度回溯，确保长篇连载不走样、不崩盘。
+门禁按模式判断。详见 [references/modes.md](references/modes.md)。
 
----
+## 每一章的流程
 
-## 🎯 效果对比：原生 AI vs 商业写作系统
+```text
+细纲（含钩子）→ gate → 读正典 → 写一章 → check → 状态增量 → 审稿 → merge
+```
 
-| 场景 | 原生大模型直接生成（AI腔拉满） | 商业写作系统驱动（影视级质感） |
-| :--- | :--- | :--- |
-| **刑场救人** | “他心中极度震惊，宛如晴天霹雳。面对凶恶的敌人，他毫不犹豫地拔出了锋利的宝剑，心中充满了滔天的愤怒，誓要拯救眼前的女子。” | “一缕惨白的日光顺着闸刀的青刃斜劈下来。他下颌咬肌猛地一突，右手拇指顶开簧锁，‘铮’的一声脆响，百炼折叠锻打的花纹钢出鞘三寸，激起一股冰冷的铁腥。” |
-| **伤后战斗** | “虽然他身负重伤，但他凭借顽强的意志力，再次施展出排山倒海的绝招，杀得敌人落荒而逃。” | “他左腿夹板崩断，断骨在肌肉里发出令人牙酸的摩擦声。他没有后退，右臂单手倒提百斤斩马刀，借着战马俯冲的惯性，自上而下一记暴烈的硬砸！” |
-| **两军对峙** | “两支大军阵容浩大，杀气腾腾，战争一触即发。” | “五万张强弓硬弩在阳光下汇成一片反光的银色海洋。四下静得连黄沙落在枯叶上的沙沙声都听得一清二楚，只有战旗在腥风里被抽打得啪啪作响。” |
+```bash
+cws gate  --project . --stage draft --chapter 12   # 没过门禁不开写，并打印必读清单
+cws check --project . --chapter 12                 # 退出码 0 才算通过
+cws merge --project . --agent ledger-1             # 只由账本角色合并
+```
 
----
+这里的 `cws` 指 `python3 <skill 目录>/scripts/cws.py`。
 
-## 📂 仓库目录结构
+## 脚本查什么
+
+| 检查项 | 内容 |
+|---|---|
+| `names` | 废弃名、已删除的名字、超出范围的曾用名、退场后又出现的人物 |
+| `unknown` | 正典里没有的陌生专名（英文，只告警） |
+| `banned` | 风格禁用词和句式，支持每章或每 N 章的上限 |
+| `quotes` | 引号格式和配对、疑似丢引号的对白；剧本查场次和对白格式 |
+| `length` | 字数或词数，按平台和项目配置 |
+| `ending` | 章尾总结句和升华句 |
+| `hooks` / `catch` | 钩子是否填写、类型轮换、付费点强度、章尾是否落地、下章开头是否接住 |
+| `threads` | 伏笔超期、引用不存在的伏笔 |
+| `knowledge` | 信息差倒退、公开后又清零、提前知道、和事实矛盾的说法 |
+| `timeline` | 故事时间倒流 |
+| `delta` | 状态增量缺失、道具账对不上、人物 id 错误 |
+| `batch` | 批次重叠、写手和审稿是同一个、没加载最新正典 |
+| `canon` | 正典自身的冲突：重复 id、同名、现用名和废弃名相撞 |
+
+退出码：0 通过，1 未通过，2 配置错误。`--strict` 让告警也算失败，`--json` 输出机器可读的结果。
+
+脚本能查规则，查不出好不好看。语气、节奏和人设要靠审稿，见 [references/phase-review.md](references/phase-review.md)。
+
+## 风格和平台
+
+| 风格 | 适用 |
+|---|---|
+| `cn-webnovel` | 中文网文。v1 的词表和影视化手法都归在这里 |
+| `en-romcom` | 英文爱情喜剧 |
+| `en-dark-romance` | 英文黑暗浪漫 |
+| `drama-script` | 微短剧剧本 |
+
+| 平台 | 适用 |
+|---|---|
+| `cn-serial` | 中文网文连载 |
+| `en-app-serial` | 英文连载 App |
+| `kindle-ku` | Kindle / KU 长篇 |
+| `short-drama` | 竖屏微短剧 |
+
+每个风格包含声音规则、禁用表和正向样例。平台配置章长、付费点、钩子要求和合规项。平台数值是经验默认值，不是官方数据，请以合同和后台为准，差异写进 `project.json` 的 `overrides`。
+
+要加新的风格或平台，见 [styles/README.md](styles/README.md) 和 [platforms/README.md](platforms/README.md)。
+
+## 钩子系统
+
+共 12 种钩子类型，强度分 1–5 级。网文模式默认每章都要钩子。连续同型告警，连续 3 章同型报错。详见 [references/hooks.md](references/hooks.md)。
+
+## 多 agent 协作
+
+- 同一段连续章节只有一个写手。
+- 审稿和写手分开。
+- 每章输出状态增量。
+- 账本只由一个角色合并。
+- 批次编号。
+- 开写前必须加载正典，增量里要带正典指纹。
+
+这些都由脚本检查。详见 [references/multi-agent.md](references/multi-agent.md)。
+
+## 跨平台
+
+规则只维护在 [AGENTS.md](AGENTS.md)。`SKILL.md` 是按阶段加载的短路由，`CLAUDE.md` 和 `GEMINI.md` 只是指向它的桥接，Codex 直接读取 `AGENTS.md`。
+
+其他平台用符号链接接到同一个目录，不要复制：
+
+```bash
+ln -s ~/.gemini/config/skills/commercial-writing-system ~/.claude/skills/commercial-writing-system
+```
+
+```bash
+ln -s ~/.gemini/config/skills/commercial-writing-system ~/.agents/skills/commercial-writing-system
+```
+
+详见 [references/install.md](references/install.md)。
+
+## 目录结构
 
 ```text
 commercial-writing-system/
-├── SKILL.md                                # 核心技能入口（遵循 Agentic Skill 规范）
-├── README.md                               # 英文官方文档
-├── README_zh.md                            # 完整中文系统文档
-├── LICENSE                                 # MIT 开源协议
-├── references/                             # 核心方法论与权威规范
-│   ├── cinematographic-constitution.md     # 影视化写作宪法（场景三问、道具质感、慢动作切片）
-│   ├── anti-ai-lexicon.md                  # 反AI腔词汇黑名单与置换指南（含称号前缀禁令）
-│   ├── foreshadowing-tracker-spec.md       # 伏笔生命周期模型与活体状态追踪对账
-│   └── genre-playbooks.md                  # 主流赛道节拍手册（历史权谋/悬疑/微短剧/知乎反转）
-└── templates/                              # 开书工程脚手架模板
-    ├── 00-emotion-map.md                   # 情绪地图模板（含 [核心红线] 规格说明）
-    ├── 01-character-profile.md             # 活体角色档案表模板（定妆五要素）
-    ├── 02-master-outline.md                # 四级骨架大纲模板（含五层真相剥茧法）
-    ├── 03-unit-plan-10ch.md                # 10章单元战术实施预案模板
-    └── 04-chapter-walkthrough.md           # 单章复盘与交付卡模板
+├── SKILL.md            # 短路由
+├── AGENTS.md           # 规则的单一真源
+├── CLAUDE.md、GEMINI.md # 薄桥接
+├── scripts/            # cws.py（校验工具）、selftest.py（自测）
+├── references/         # 按阶段加载的说明、钩子类型表
+├── styles/             # 四种风格
+├── platforms/          # 四个平台
+├── modes/              # 各模式的门禁规则
+├── templates/          # project/ 项目骨架，docs/ 说明文档模板
+└── examples/           # 极小的示例项目，以及故意写错的版本
 ```
 
----
+## 试一下示例
 
-## 🚀 快速上手（Quick Start）
-
-### 方式一：在 Antigravity / Claude Code / Codex / Cursor 中安装
-
-将本项目克隆至 Agent 对应的自定义 Skill 路径中：
+`examples/mini-romcom/` 是一个 4 章的示例项目，`examples/broken-overlay/` 是故意写错的版本。
 
 ```bash
-# Antigravity / Gemini CLI 默认技能路径：
-cd ~/.gemini/config/skills/
-git clone https://github.com/egguy886/commercial-writing-system.git
-
-# Claude Code 技能路径：
-cd ~/.claude/skills/
-git clone https://github.com/egguy886/commercial-writing-system.git
+python3 scripts/cws.py check --project examples/mini-romcom --strict
 ```
 
-在对话中直接发送指令唤醒：
-> “使用**商业写作系统**，帮我开一本200章的历史权谋小说，核心设定是……”
+```bash
+python3 scripts/cws.py check --project examples/mini-romcom --chapter 4 --file examples/broken-overlay/chapters/ch-004.md --only names,banned,quotes,length,ending,hooks
+```
 
-系统将自动触发**阶段一：Clarify 5 问澄清**，与你开始共创。
+前一条通过，后一条会报出废弃名、禁用词、引号错误、字数不足、章尾总结句和没接住钩子。
 
-### 方式二：手动集成到任意小说工作区
+## 从 v1 升级
 
-1. 在你的小说项目根目录下，新建 `设定/` 文件夹。
-2. 将 `templates/` 下的文件复制到 `设定/` 中作为开书基盘：
-   - `设定/00-情绪地图.md`
-   - `设定/01-角色档案.md`
-   - `设定/02-大纲.md`
-   - `设定/03-伏笔追踪表.md`
-3. 按照 `templates/03-unit-plan-10ch.md` 规划第一个 10 章作战单元。
-4. 正文生成时，要求 AI 严格加载并遵守 `references/cinematographic-constitution.md` 与 `references/anti-ai-lexicon.md`。
+- `references/anti-ai-lexicon.md` 和 `cinematographic-constitution.md` 移到了 `styles/cn-webnovel/`，只在选用这个风格时生效。
+- 复盘卡和伏笔 Markdown 表被 `state/deltas/`、`canon/threads.json` 取代。
+- 已有项目用 `cws init . --mode continue`（或 `rewrite`）接管，不会覆盖已有文件。然后把设定回填进 `canon/`，把 `chapters.glob` 指向已有正文。
 
----
+完整改动见 [CHANGELOG.md](CHANGELOG.md)。
 
-## 📄 开源许可证
+## 许可证
 
-本项目基于 [MIT License](LICENSE) 开源。欢迎所有网络作家、编剧、独立游戏开发者及 AI 创作者自由使用、魔改与分发。
+[MIT](LICENSE)

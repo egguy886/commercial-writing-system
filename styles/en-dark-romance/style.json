@@ -1,0 +1,44 @@
+{
+  "id": "en-dark-romance",
+  "lang": "en",
+  "load": ["voice.md", "banned.md", "examples.md"],
+  "length": {"unit": "words", "min": 1500, "max": 3000, "tolerance": 0.2},
+  "quotes": {
+    "mode": "en_curly",
+    "lost_quote_regex": "^[A-Z][^.!?]{0,120}[,?!] (?:[Ss]he|[Hh]e|[Ii]|[A-Z][a-z]+) (?:said|asked|whispered|muttered|replied|snapped|growled)\\b"
+  },
+  "banned": [
+    {"term": "obsidian"},
+    {"term": "molten"},
+    {"term": "ministrations"},
+    {"term": "unadulterated"},
+    {"term": "tapestry"},
+    {"term": "palpable"},
+    {"term": "testament to"},
+    {"term": "utterly"},
+    {"term": "little girl", "note": "低龄化称呼，一律不用"},
+    {"term": "\\b(?:teen|teenager|underage|schoolgirl)\\b", "regex": true, "label": "未成年相关词", "severity": "warn", "note": "确认和亲密内容无关"},
+    {"term": "predator", "where": "narration", "max": 1, "window": 10, "note": "可以用，但要省着用"},
+    {"term": "growl(?:s|ed|ing)?\\b", "regex": true, "label": "growled", "max": 2, "severity": "warn"},
+    {"term": "smirk(?:s|ed|ing)?\\b", "regex": true, "label": "smirk", "max": 3, "window": 10},
+    {"term": "dangerous(?:ly)?\\b", "regex": true, "label": "dangerous", "where": "narration", "max": 1, "severity": "warn", "note": "写他做了什么，不要贴标签"},
+    {"term": "suddenly", "severity": "warn"},
+    {"term": "breath (?:she|he|they) didn[’']t know", "regex": true, "label": "a breath she didn’t know she was holding"},
+    {"term": "shiver(?:s|ed)? (?:ran |went )?down (?:her|his|my) spine", "regex": true, "label": "shiver down her spine"},
+    {"term": "\\b[Ii]t (?:wasn[’']t|was not) [^.?!\\n]{1,60}[.;—] ?[Ii]t was\\b", "regex": true, "label": "It wasn’t X. It was Y.", "case_sensitive": true},
+    {"term": "\\?!", "regex": true, "label": "?!", "max": 1}
+  ],
+  "ending": {
+    "window_paragraphs": 2,
+    "summary_patterns": [
+      "little did (?:she|he|they|i) know",
+      "nothing would ever be the same",
+      "everything (?:was about to|would) change",
+      "(?:this|it) was only the beginning",
+      "(?:this|it) was just the beginning",
+      "one thing was (?:certain|clear)",
+      "(?:she|he|they) (?:didn[’']t|did not) know it yet",
+      "to be continued"
+    ]
+  }
+}

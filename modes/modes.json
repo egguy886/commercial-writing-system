@@ -1,0 +1,68 @@
+{
+  "new": {
+    "label": "新书",
+    "summary": "从零开书，走完澄清和地基，再写第一章。",
+    "scaffold_docs": [
+      {"from": "00-emotion-map.md", "to": "docs/00-emotion-map.md"},
+      {"from": "02-worldbuilding-rules.md", "to": "docs/02-world-rules.md"},
+      {"from": "03-relationship-matrix-mermaid.md", "to": "docs/03-relationships.md"},
+      {"from": "05-master-outline.md", "to": "docs/05-master-outline.md"}
+    ],
+    "stages": {
+      "plan": {
+        "required_files": ["docs/00-emotion-map.md", "docs/02-world-rules.md", "docs/03-relationships.md", "docs/05-master-outline.md", "canon/characters.json", "canon/timeline.json", "canon/locations.json", "canon/props.json", "canon/knowledge.json", "canon/threads.json"],
+        "nonempty": ["characters:characters", "locations:locations"],
+        "load": ["docs/00-emotion-map.md", "docs/05-master-outline.md", "canon/characters.json", "canon/knowledge.json", "canon/threads.json"]
+      },
+      "draft": {
+        "required_files": ["docs/00-emotion-map.md", "docs/02-world-rules.md", "docs/03-relationships.md", "docs/05-master-outline.md", "canon/characters.json", "canon/timeline.json", "canon/locations.json", "canon/props.json", "canon/knowledge.json", "canon/threads.json", "plan/chapters.json"],
+        "nonempty": ["characters:characters", "locations:locations", "timeline:events"],
+        "load": ["canon/characters.json", "canon/timeline.json", "canon/locations.json", "canon/props.json", "canon/knowledge.json", "canon/threads.json", "state/ledger.json", "docs/00-emotion-map.md"]
+      }
+    }
+  },
+  "continue": {
+    "label": "续写",
+    "summary": "接着已有正文往下写。不重走开书流程，但要先把已有内容回填成正典。",
+    "scaffold_docs": [
+      {"from": "continuation-brief.md", "to": "docs/continuation-brief.md"}
+    ],
+    "stages": {
+      "plan": {
+        "required_files": ["docs/continuation-brief.md", "canon/characters.json", "canon/timeline.json", "canon/knowledge.json", "canon/threads.json"],
+        "nonempty": ["characters:characters", "threads:threads"],
+        "needs_existing_chapters": true,
+        "needs_scope": true,
+        "load": ["docs/continuation-brief.md", "canon/characters.json", "canon/knowledge.json", "canon/threads.json"]
+      },
+      "draft": {
+        "required_files": ["docs/continuation-brief.md", "canon/characters.json", "canon/timeline.json", "canon/locations.json", "canon/props.json", "canon/knowledge.json", "canon/threads.json", "plan/chapters.json"],
+        "nonempty": ["characters:characters", "threads:threads"],
+        "needs_existing_chapters": true,
+        "needs_scope": true,
+        "load": ["docs/continuation-brief.md", "canon/characters.json", "canon/timeline.json", "canon/locations.json", "canon/props.json", "canon/knowledge.json", "canon/threads.json", "state/ledger.json"]
+      }
+    }
+  },
+  "rewrite": {
+    "label": "改写/改编",
+    "summary": "改已有稿子，或改编成另一种形式。正典和改写说明就绪即可开工，不要求情绪地图和全书大纲。",
+    "scaffold_docs": [
+      {"from": "rewrite-brief.md", "to": "docs/rewrite-brief.md"}
+    ],
+    "stages": {
+      "plan": {
+        "required_files": ["docs/rewrite-brief.md", "canon/characters.json"],
+        "nonempty": ["characters:characters"],
+        "needs_scope": true,
+        "load": ["docs/rewrite-brief.md", "canon/characters.json", "canon/timeline.json", "canon/knowledge.json", "canon/threads.json"]
+      },
+      "draft": {
+        "required_files": ["docs/rewrite-brief.md", "canon/characters.json", "canon/timeline.json", "canon/knowledge.json", "canon/threads.json", "plan/chapters.json"],
+        "nonempty": ["characters:characters"],
+        "needs_scope": true,
+        "load": ["docs/rewrite-brief.md", "canon/characters.json", "canon/timeline.json", "canon/locations.json", "canon/props.json", "canon/knowledge.json", "canon/threads.json", "state/ledger.json"]
+      }
+    }
+  }
+}

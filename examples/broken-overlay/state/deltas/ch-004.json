@@ -1,0 +1,40 @@
+{
+  "chapter": 4,
+  "batch": "B001",
+  "writer": "writer-z",
+  "canon_hash": "000000000000",
+  "story_day": 2,
+  "pov": [
+    "dana"
+  ],
+  "summary": "Theo 当众承认",
+  "knowledge": [
+    {
+      "fact": "F1",
+      "who": "dana",
+      "level": "suspects"
+    },
+    {
+      "fact": "F1",
+      "who": "*"
+    }
+  ],
+  "props": [
+    {
+      "id": "key",
+      "from": "priya",
+      "holder": "theo"
+    }
+  ],
+  "threads": [
+    {
+      "id": "T1",
+      "action": "resolved"
+    }
+  ],
+  "characters": {
+    "nina": {
+      "location": "office"
+    }
+  }
+}

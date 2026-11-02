@@ -1,0 +1,45 @@
+{
+  "id": "cn-webnovel",
+  "lang": "zh",
+  "load": ["voice.md", "banned.md", "examples.md", "anti-ai-lexicon.md"],
+  "length": {"unit": "chars", "min": 1500, "max": 3500, "tolerance": 0.2},
+  "quotes": {
+    "mode": "cn_curly",
+    "lost_quote_regex": "[他她我你][^。！？”]{0,6}[说道问喊][：:](?!\\s*“)"
+  },
+  "banned": [
+    {"term": "极其"},
+    {"term": "极度"},
+    {"term": "宛如"},
+    {"term": "简直"},
+    {"term": "仿佛", "where": "narration"},
+    {"term": "毫无疑问"},
+    {"term": "分外"},
+    {"term": "赫然"},
+    {"term": "悄然"},
+    {"term": "蓦然"},
+    {"term": "不禁"},
+    {"term": "不由得"},
+    {"term": "殊不知"},
+    {"term": "浑然不觉"},
+    {"term": "不仅[^。！？\\n]{0,40}更是", "regex": true, "label": "不仅……更是……"},
+    {"term": "闪过一丝", "note": "人脸不是调色盘"},
+    {"term": "嘴角[^。！？\\n]{0,8}勾起", "regex": true, "label": "嘴角勾起", "max": 1, "window": 50},
+    {"term": "空气中弥漫着"},
+    {"term": "不易察觉"}
+  ],
+  "ending": {
+    "window_paragraphs": 2,
+    "summary_patterns": [
+      "这不仅是",
+      "一切才刚刚开始",
+      "这只是开始",
+      "从此[^。！？]{0,12}(?:不同|改变|再也)",
+      "命运的齿轮",
+      "他(?:们)?不知道的是",
+      "她(?:们)?不知道的是",
+      "殊不知",
+      "未完待续"
+    ]
+  }
+}

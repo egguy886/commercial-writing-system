@@ -1,0 +1,17 @@
+{
+  "id": "kindle-ku",
+  "name": "Kindle / Kindle Unlimited 长篇",
+  "lang": "en",
+  "provenance": "经验默认值。内容和 AI 披露要求以 Amazon KDP 当前政策为准。",
+  "length": {"unit": "words", "min": 1800, "max": 4500, "tolerance": 0.25},
+  "hooks": {"required": "every_chapter", "min_strength": 1, "paywall_min_strength": 3, "max_same_run": 2},
+  "paywall": {
+    "model": "试读后整本购买，或 KU 按阅读页数计费",
+    "guide": "试读样章（约全书前 10%）的结尾要有强钩子。章尾允许更轻的收束，但全书不能连续弱钩。"
+  },
+  "compliance": [
+    "所有涉及亲密内容的人物必须明确是成年人",
+    "按 KDP 当前政策如实申报 AI 生成内容",
+    "按题材和内容提示的读者预期写，书页的 content warning 要和正文一致"
+  ]
+}

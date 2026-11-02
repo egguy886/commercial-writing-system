@@ -1,0 +1,32 @@
+{
+  "chapter": 2,
+  "batch": "B001",
+  "writer": "writer-a",
+  "canon_hash": "4ceaf6a3fed1",
+  "story_day": 1,
+  "pov": [
+    "dana"
+  ],
+  "summary": "认出标点习惯",
+  "knowledge": [
+    {
+      "fact": "F1",
+      "who": "dana",
+      "level": "suspects"
+    }
+  ],
+  "threads": [
+    {
+      "id": "T1",
+      "action": "advanced"
+    },
+    {
+      "id": "T2",
+      "action": "advanced"
+    }
+  ],
+  "hook": {
+    "type": "arrival",
+    "strength": 3
+  }
+}

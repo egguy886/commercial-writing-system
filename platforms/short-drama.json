@@ -1,0 +1,17 @@
+{
+  "id": "short-drama",
+  "name": "竖屏微短剧（ReelShort、DramaBox、抖音一类）",
+  "lang": "mixed",
+  "provenance": "经验默认值，不是平台官方数据。集长和付费集以制片方要求为准。",
+  "length": {"unit": "chars", "min": 300, "max": 900, "tolerance": 0.3},
+  "hooks": {"required": "every_chapter", "min_strength": 3, "paywall_min_strength": 5, "max_same_run": 1, "opening_units": 120, "landing_units": 80, "max_catch_delay": 2},
+  "paywall": {
+    "model": "前若干集免费，之后付费",
+    "guide": "付费卡点由制片方定，常见在第 8–12 集。标 paywall: true 的一集结尾必须是强度 5 的钩子。"
+  },
+  "compliance": [
+    "所有涉及亲密内容的角色必须是成年人",
+    "性、暴力尺度按目标平台审核规则处理，亲密戏写到切镜",
+    "国内上线需符合网络微短剧备案和审核要求"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "schema": 2,
+  "calendar_note": "story_day 从故事第一天算起",
+  "events": [
+    {"id": "E1", "chapters": "1-2", "story_day": 1, "summary": "周一，发现发票，收到匿名短信"},
+    {"id": "E2", "chapters": "3-4", "story_day": 2, "summary": "周二，办公室对质"}
+  ]
+}

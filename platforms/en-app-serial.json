@@ -1,0 +1,18 @@
+{
+  "id": "en-app-serial",
+  "name": "英文连载 App（金币解锁一类）",
+  "lang": "en",
+  "provenance": "经验默认值，不是平台官方数据。不同 App 的章长和解锁点差别很大，以编辑要求和合同为准，差异写进 project.json 的 overrides。",
+  "length": {"unit": "words", "min": 1200, "max": 2200, "tolerance": 0.2},
+  "hooks": {"required": "every_chapter", "min_strength": 2, "paywall_min_strength": 4, "max_same_run": 1},
+  "paywall": {
+    "model": "前若干章免费，之后按章解锁",
+    "guide": "解锁点由平台或编辑决定，常见在前 10–30 章。确定后在细纲上给对应章节标 paywall: true，强度至少 4，不能是 button 型。"
+  },
+  "compliance": [
+    "所有涉及亲密内容的人物必须明确是成年人，不用低龄化称呼",
+    "亲密内容的尺度按平台规定，默认写到关门",
+    "不使用真实人物和真实公司做负面情节",
+    "许多平台要求独家并声明 AI 使用情况，签约前确认条款"
+  ]
+}

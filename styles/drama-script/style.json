@@ -1,0 +1,27 @@
+{
+  "id": "drama-script",
+  "lang": "mixed",
+  "load": ["voice.md", "banned.md", "examples.md"],
+  "length": {"unit": "chars", "min": 300, "max": 900, "tolerance": 0.3},
+  "quotes": {"mode": "script"},
+  "format": {
+    "scene_heading": "^\\s*(?:\\d+-\\d+\\s|场景|INT\\.|EXT\\.)",
+    "scene_hint": "1-1 日 内 办公室，或 INT. OFFICE - DAY",
+    "dialogue_line": "^\\s*[^\\s：:（(△]{1,30}\\s*(?:（[^）]*）|\\([^)]*\\))?\\s*[：:]\\s*\\S",
+    "dialogue_hint": "角色名（情绪）：台词",
+    "min_dialogue_lines": 3
+  },
+  "banned": [
+    {"term": "心想", "severity": "warn", "note": "拍不出来。改成动作，或标明 OS"},
+    {"term": "内心", "severity": "warn", "note": "拍不出来"},
+    {"term": "回忆起", "severity": "warn", "note": "要回忆就写闪回场次"},
+    {"term": "极其"},
+    {"term": "宛如"},
+    {"term": "仿佛"},
+    {"term": "气氛[^。\\n]{0,6}(?:紧张|压抑|尴尬)", "regex": true, "label": "气氛紧张", "note": "写演员能演的动作"}
+  ],
+  "ending": {
+    "window_paragraphs": 2,
+    "summary_patterns": ["全剧终(?!$)", "未完待续", "这只是开始", "一切才刚刚开始", "命运的齿轮", "to be continued", "this was only the beginning"]
+  }
+}

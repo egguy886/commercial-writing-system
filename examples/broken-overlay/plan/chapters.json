@@ -1,0 +1,110 @@
+{
+  "schema": 2,
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "The Apology Invoice",
+      "pov": "dana",
+      "story_day": 1,
+      "batch": "B001",
+      "emotion": "好笑",
+      "summary": "Dana 查出一张荒唐的发票，收到匿名短信",
+      "threads": {
+        "plant": [
+          "T1",
+          "T2"
+        ]
+      },
+      "hook": {
+        "type": "message",
+        "strength": 3,
+        "text": "匿名短信说知道她抽屉里有什么",
+        "keywords": [
+          "drawer"
+        ]
+      }
+    },
+    {
+      "chapter": 2,
+      "title": "Punctuation",
+      "pov": "dana",
+      "story_day": 1,
+      "batch": "B001",
+      "emotion": "斗智",
+      "summary": "她认出短信的标点习惯，开始怀疑 Theo",
+      "catch": {
+        "mode": "direct",
+        "keywords": [
+          "drawer"
+        ],
+        "note": "直接拉开抽屉"
+      },
+      "threads": {
+        "advance": [
+          "T1",
+          "T2"
+        ]
+      },
+      "hook": {
+        "type": "message",
+        "strength": 3,
+        "text": "又一条短信",
+        "keywords": [
+          "phone"
+        ]
+      }
+    },
+    {
+      "chapter": 3,
+      "title": "Line Four",
+      "pov": "dana",
+      "story_day": 2,
+      "batch": "B001",
+      "emotion": "辣",
+      "summary": "两人隔着桌子对质，她母亲偏偏打来电话",
+      "catch": {
+        "mode": "direct",
+        "keywords": [
+          "Theo",
+          "door"
+        ],
+        "note": "来人开口"
+      },
+      "threads": {
+        "advance": [
+          "T2"
+        ]
+      },
+      "paywall": true,
+      "hook": {
+        "type": "message",
+        "strength": 2,
+        "text": "第三条短信"
+      }
+    },
+    {
+      "chapter": 4,
+      "title": "Disclosure",
+      "pov": "dana",
+      "story_day": 2,
+      "batch": "B001",
+      "emotion": "爽",
+      "summary": "Theo 当众承认发了短信，钥匙交回",
+      "final": false,
+      "catch": {
+        "mode": "direct",
+        "keywords": [
+          "zebra"
+        ]
+      },
+      "threads": {
+        "resolve": [
+          "T1"
+        ],
+        "advance": [
+          "T2"
+        ]
+      }
+    }
+  ]
+}

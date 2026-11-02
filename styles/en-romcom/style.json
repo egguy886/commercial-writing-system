@@ -1,0 +1,61 @@
+{
+  "id": "en-romcom",
+  "lang": "en",
+  "load": ["voice.md", "banned.md", "examples.md"],
+  "length": {"unit": "words", "min": 1200, "max": 2500, "tolerance": 0.2},
+  "quotes": {
+    "mode": "en_curly",
+    "lost_quote_regex": "^[A-Z][^.!?]{0,120}[,?!] (?:[Ss]he|[Hh]e|[Ii]|[A-Z][a-z]+) (?:said|asked|whispered|muttered|replied|snapped|shouted|murmured)\\b"
+  },
+  "banned": [
+    {"term": "predatory", "note": "这个词把爱情喜剧写成惊悚片"},
+    {"term": "predator"},
+    {"term": "lethal", "where": "narration"},
+    {"term": "obsidian"},
+    {"term": "sovereign"},
+    {"term": "baritone"},
+    {"term": "suffocating"},
+    {"term": "intoxicating"},
+    {"term": "unadulterated"},
+    {"term": "molten"},
+    {"term": "utterly"},
+    {"term": "tapestry"},
+    {"term": "palpable"},
+    {"term": "testament to"},
+    {"term": "ministrations"},
+    {"term": "smirk(?:s|ed|ing)?\\b", "regex": true, "label": "smirk", "max": 2, "window": 10},
+    {"term": "murmur(?:s|ed|ing)?\\b", "regex": true, "label": "murmured", "max": 1, "severity": "warn", "note": "能用 said 就用 said"},
+    {"term": "very", "max": 3, "severity": "warn"},
+    {"term": "for a moment", "max": 3, "severity": "warn"},
+    {"term": "looked at", "max": 3, "severity": "warn"},
+    {"term": "like a man", "max": 3, "severity": "warn"},
+    {"term": "suddenly", "max": 0, "severity": "warn"},
+    {"term": "breath (?:she|he|they) didn[’']t know", "regex": true, "label": "a breath she didn’t know she was holding"},
+    {"term": "shiver(?:s|ed)? (?:ran |went )?down (?:her|his|my) spine", "regex": true, "label": "shiver down her spine"},
+    {"term": "(?:breath|breathing) (?:hitched|caught)", "regex": true, "label": "breath hitched", "max": 1, "window": 5, "severity": "warn"},
+    {"term": "heart (?:hammered|pounded|slammed) against (?:her|his|my) ribs", "regex": true, "label": "heart hammered against her ribs"},
+    {"term": "\\b[Ii]t (?:wasn[’']t|was not) [^.?!\\n]{1,60}[.;—] ?[Ii]t was\\b", "regex": true, "label": "It wasn’t X. It was Y.", "max": 0, "case_sensitive": true},
+    {"term": "\\?!", "regex": true, "label": "?!", "max": 1},
+    {"term": "\\b[A-Z]{3,}!", "regex": true, "label": "全大写拟声词", "case_sensitive": true, "severity": "warn"},
+    {"term": "little girl", "note": "低龄化称呼"},
+    {"term": "take responsibility", "severity": "warn", "note": "中文直译“负责”"},
+    {"term": "drink(?:ing)? vinegar", "regex": true, "label": "吃醋直译"},
+    {"term": "\\b(?:President|Director|Manager) [A-Z][a-z]+", "regex": true, "case_sensitive": true, "label": "Director X 式称呼", "severity": "warn", "note": "美国职场直呼其名"}
+  ],
+  "ending": {
+    "window_paragraphs": 2,
+    "summary_patterns": [
+      "little did (?:she|he|they|i) know",
+      "nothing would ever be the same",
+      "everything (?:was about to|would) change",
+      "(?:this|it) was only the beginning",
+      "(?:this|it) was just the beginning",
+      "one thing was (?:certain|clear)",
+      "(?:she|he|they) (?:didn[’']t|did not) know it yet",
+      "(?:she|he) had no idea (?:that )?(?:this|what|how)",
+      "and (?:she|he) knew[,:]? (?:then|with)",
+      "for better or (?:for )?worse",
+      "to be continued"
+    ]
+  }
+}

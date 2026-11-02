@@ -1,0 +1,13 @@
+{
+  "schema": 2,
+  "title": "",
+  "mode": "new",
+  "style": "cn-webnovel",
+  "platform": "cn-serial",
+  "chapters": {"glob": "chapters/ch-*.md", "number_regex": "(\\d+)"},
+  "multi_agent": {"enabled": false},
+  "allow_names": [],
+  "extra_banned": [],
+  "disable_banned": [],
+  "overrides": {}
+}

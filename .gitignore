@@ -13,3 +13,7 @@ Thumbs.db
 scratch/
 tmp/
 temp/
+
+# Python
+__pycache__/
+*.pyc

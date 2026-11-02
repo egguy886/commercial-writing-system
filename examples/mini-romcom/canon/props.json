@@ -1,0 +1,7 @@
+{
+  "schema": 2,
+  "props": [
+    {"id": "key", "name": "the brass key", "aliases": ["brass key"], "holder": "dana", "state": "在她抽屉里"}
+  ],
+  "retired": []
+}
