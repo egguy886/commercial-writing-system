@@ -31,6 +31,9 @@ DEFAULT_HOOKS = {
     "min_strength": 2,
     "paywall_min_strength": 4,
     "max_same_run": 1,
+    "max_weak_run": 2,
+    "disallowed_types": [],
+    "paywall_forbidden_types": ["button", "question"],
     "opening_units": 300,
     "landing_units": 150,
     "max_catch_delay": 3,
@@ -495,11 +498,17 @@ def check_hooks(p, r, selected):
         strength = s if isinstance(s, int) else 0
         if show and strength and strength < cfg["min_strength"] and need:
             r.warn("hooks", "钩子强度 %d 低于平台下限 %d" % (strength, cfg["min_strength"]), n)
-        if show and row.get("paywall") and strength < cfg["paywall_min_strength"]:
-            r.err("hooks", "付费点章节钩子强度 %d，至少要 %d" % (strength, cfg["paywall_min_strength"]), n)
+        if show and row.get("paywall"):
+            if strength < cfg["paywall_min_strength"]:
+                r.err("hooks", "付费点章节钩子强度 %d，至少要 %d" % (strength, cfg["paywall_min_strength"]), n)
+            if t in cfg.get("paywall_forbidden_types", ["button", "question"]):
+                r.err("hooks", "付费点章节禁止使用软钩类型“%s”（须为实打实的威胁、秘密曝光或危机悬停）" % t, n)
+        if show and t in cfg.get("disallowed_types", []):
+            r.err("hooks", "平台 %s 禁止使用钩子类型“%s”" % (p.platform.get("id", ""), t), n)
         weak = weak + 1 if strength and strength <= 2 else 0
-        if show and weak == 3:
-            r.warn("hooks", "连续 3 章弱钩（强度 ≤2）", n)
+        max_weak = cfg.get("max_weak_run", 2)
+        if show and weak > max_weak:
+            r.warn("hooks", "连续 %d 章弱钩（强度 ≤2），易导致读者弃读流失" % weak, n)
         run_len = run_len + 1 if (t == run_type and prev_n == n - 1) else 1
         run_type, prev_n = t, n
         if show and run_len > cfg["max_same_run"]:

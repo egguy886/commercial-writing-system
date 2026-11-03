@@ -107,9 +107,17 @@ Each style has voice rules, a banned list, and positive examples. Each platform 
 
 To add a style or platform, see [styles/README.md](styles/README.md) and [platforms/README.md](platforms/README.md).
 
-## Hook system
+## Hook system (Hardened Cliffhangers & Mid-Action Cut)
 
-There are 12 hook types and five strength levels. Serial mode requires a hook in every chapter by default. Two same-type hooks in a row give a warning, and three give an error. See [references/hooks.md](references/hooks.md).
+There are 12 hook types, grouped into three tiers:
+- **Tier 1 Hard Conversion Hooks** (`danger`, `caught`, `reveal`, `desire`, `reversal`): Main drivers for serialized retention and required on paywalls.
+- **Tier 2 Propulsion Hooks** (`message`, `deadline`, `showdown`, `decision`): Standard rotation for narrative momentum.
+- **Tier 3 Soft Hooks** (`question`, `button`): High drop-off risk; restricted in pay-per-chapter serials and **strictly forbidden on paywalls**.
+
+Core principles:
+- **Starvation over Satiety**: Never give the reader emotional closure at the chapter end. Banter, reflection, and quiet character moments belong *mid-chapter*; chapter ends must cut off on high tension.
+- **Mid-Action Cut Principle**: Never cut after an action resolves (e.g. going to bed, opening a file). Cut mid-action, mid-interruption, or as a crisis lands.
+- **Platform strength thresholds**: Serial app baseline hook strength is 3 (warning on consecutive weak hooks ≤2); short drama baseline is 4; paywall chapters require strength 4–5. See [references/hooks.md](references/hooks.md).
 
 ## Multi-agent work
 

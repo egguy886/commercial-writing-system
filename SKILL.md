@@ -1,11 +1,11 @@
 ---
 name: commercial-writing-system
 description: |
-  长篇连载和短剧的写作流水线（Commercial Writing System v2）：开新书、续写、改写或改编；用机器可读的正典和校验脚本防止人物改名、引号丢失、秘密清零、伏笔烂尾；章尾钩子系统；可切换风格（中文网文、英文爱情喜剧、英文黑暗浪漫、短剧剧本）和平台；支持多 agent 分工。
-  触发词：商业写作系统、写小说、开新书、续写、改写小说、改编、网文写作、长篇连载、章尾钩子、人物一致性、去AI味写小说、出海小说、write a novel, continue my novel, rewrite chapters, web serial, romance novel, keep characters consistent.
+  长篇连载和短剧的写作流水线（Commercial Writing System v2.1）：开新书、续写、改写或改编；章尾强钩硬化与半拍截断原则（防软化/防饱腹感/高转化硬钩体系）；用机器可读的正典和校验脚本防止人物改名、引号丢失、秘密清零、伏笔烂尾；可切换风格（中文网文、英文爱情喜剧、英文黑暗浪漫、短剧剧本）和平台；支持多 agent 分工。
+  触发词：商业写作系统、写小说、开新书、续写、改写小说、改编、网文写作、长篇连载、章尾钩子、章尾防软化、半拍截断、强悬念、付费卡点、人物一致性、去AI味写小说、出海小说、write a novel, continue my novel, rewrite chapters, web serial, romance novel, cliffhanger, mid-action cut, keep characters consistent.
 ---
 
-# 商业写作系统 v2：路由
+# 商业写作系统 v2.1：路由
 
 硬规则的唯一来源是同目录的 `AGENTS.md`。先读它，再按下表只加载当前阶段需要的文件。不要一次读完所有文件。
 

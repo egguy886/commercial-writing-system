@@ -2,12 +2,23 @@
   "id": "short-drama",
   "name": "竖屏微短剧（ReelShort、DramaBox、抖音一类）",
   "lang": "mixed",
-  "provenance": "经验默认值，不是平台官方数据。集长和付费集以制片方要求为准。",
+  "provenance": "微短剧极端追求完播率与秒级卡点。每集必须在冲突爆发临界点强制截断。",
   "length": {"unit": "chars", "min": 300, "max": 900, "tolerance": 0.3},
-  "hooks": {"required": "every_chapter", "min_strength": 3, "paywall_min_strength": 5, "max_same_run": 1, "opening_units": 120, "landing_units": 80, "max_catch_delay": 2},
+  "hooks": {
+    "required": "every_chapter",
+    "min_strength": 4,
+    "paywall_min_strength": 5,
+    "max_same_run": 1,
+    "max_weak_run": 0,
+    "opening_units": 120,
+    "landing_units": 80,
+    "max_catch_delay": 2,
+    "disallowed_types": ["button"],
+    "paywall_forbidden_types": ["button", "question"]
+  },
   "paywall": {
     "model": "前若干集免费，之后付费",
-    "guide": "付费卡点由制片方定，常见在第 8–12 集。标 paywall: true 的一集结尾必须是强度 5 的钩子。"
+    "guide": "付费卡点由制片方定，常见在第 8–12 集。标 paywall: true 的一集结尾必须是强度 5 的核弹钩子，绝对禁止金句收束或弱悬念。"
   },
   "compliance": [
     "所有涉及亲密内容的角色必须是成年人",

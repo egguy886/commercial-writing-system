@@ -1,13 +1,20 @@
 {
   "id": "en-app-serial",
-  "name": "英文连载 App（金币解锁一类）",
+  "name": "英文连载 App（Dreame、GoodNovel、AlphaNovel 一类金币解锁平台）",
   "lang": "en",
-  "provenance": "经验默认值，不是平台官方数据。不同 App 的章长和解锁点差别很大，以编辑要求和合同为准，差异写进 project.json 的 overrides。",
+  "provenance": "商业连载经验标准。按章扣费模式下，章尾悬念直接决定读者付费转化率与留存率。必须执行半拍截断原则，坚决避免饱腹感结尾。",
   "length": {"unit": "words", "min": 1200, "max": 2200, "tolerance": 0.2},
-  "hooks": {"required": "every_chapter", "min_strength": 2, "paywall_min_strength": 4, "max_same_run": 1},
+  "hooks": {
+    "required": "every_chapter",
+    "min_strength": 3,
+    "paywall_min_strength": 4,
+    "max_same_run": 1,
+    "max_weak_run": 0,
+    "paywall_forbidden_types": ["button", "question"]
+  },
   "paywall": {
-    "model": "前若干章免费，之后按章解锁",
-    "guide": "解锁点由平台或编辑决定，常见在前 10–30 章。确定后在细纲上给对应章节标 paywall: true，强度至少 4，不能是 button 型。"
+    "model": "前若干章免费试读，之后按章付费解锁",
+    "guide": "付费卡点由平台或合同决定，常见在前 10–30 章。标 paywall: true 的章节钩子强度至少为 4（建议 4~5），必须使用 Tier 1 高转化硬钩（danger, caught, reveal, desire, reversal），严禁使用 button 和 question 软钩收尾。"
   },
   "compliance": [
     "所有涉及亲密内容的人物必须明确是成年人，不用低龄化称呼",

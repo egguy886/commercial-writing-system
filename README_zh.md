@@ -107,9 +107,17 @@ cws merge --project . --agent ledger-1             # 只由账本角色合并
 
 要加新的风格或平台，见 [styles/README.md](styles/README.md) 和 [platforms/README.md](platforms/README.md)。
 
-## 钩子系统
+## 钩子系统（章尾防软化与半拍截断）
 
-共 12 种钩子类型，强度分 1–5 级。网文模式默认每章都要钩子。连续同型告警，连续 3 章同型报错。详见 [references/hooks.md](references/hooks.md)。
+共 12 种钩子类型，划分为三大梯队：
+- **Tier 1 高转化硬钩**（`danger` 危机逼近、`caught` 撞破、`reveal` 秘密漏缝、`desire` 欲望悬停、`reversal` 认知反转）：连载主力与付费卡点必备。
+- **Tier 2 推进型中钩**（`message` 突发消息、`deadline` 绝境倒计时、`showdown` 清算在即、`decision` 两难抉择）：日常推进轮换。
+- **Tier 3 软钩**（`question` 异常、`button` 金句收束）：高弃读风险，按章付费连载严格受限，**付费卡点严禁使用**。
+
+核心原则与规则：
+- **拒绝文学饱腹感（Aesthetic Satiety）**：坚决给读者翻页饥饿感；抒情、呼吸感和日常交流全部留在章中，章尾必须高压掐喉。
+- **半拍截断原则（Mid-Action Cut）**：严禁动作彻底落地后收笔（如脱鞋入睡、打开表格），必须在动作执行一半被意外打断、危机骤降的一瞬硬性掐断。
+- **平台分级与卡点**：连载 App 钩子最低强度为 3，连续弱钩（强度 ≤2）告警；短剧最低强度为 4；付费点强度至少 4（短剧为 5）。连续同型告警，连续 3 章同型报错。详见 [references/hooks.md](references/hooks.md)。
 
 ## 多 agent 协作
 

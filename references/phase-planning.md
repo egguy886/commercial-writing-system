@@ -20,6 +20,7 @@ cws check --project . --only canon,hooks,timeline,threads
 
 - **公开情节被清零**：第 40 章全公司都知道了，第 55 章又成了秘密。写细纲时查 `knowledge.json`。
 - **钩子同型**：连续几章都是收到短信。查类型分布。
+- **章尾偏软 / 饱腹感结尾**：细纲规划钩子时，禁止将章节停在“日常解决”、“安然入睡”、“平稳交接”上。连载 App 与短剧优先选用 Tier 1 高转化硬钩（`danger`, `caught`, `reveal`, `desire`, `reversal`）。付费卡点（`paywall: true`）严禁使用 `button` 或 `question`！
 - **没有代价**：主角这一单元有没有失去什么？
 - **配角消失**：重要配角隔太久没出现，要安排，或者在正典里写明退场。
 

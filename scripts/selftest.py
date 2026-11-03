@@ -197,6 +197,42 @@ def test_modes(tmp):
     expect("配置错误退出码 2", code == 2)
 
 
+def test_hook_hardening(tmp):
+    # 1. 付费点禁止使用软钩（如 button 或 question）
+    project = os.path.join(tmp, "hook-paywall-soft")
+    shutil.copytree(EXAMPLE, project)
+    plan_path = os.path.join(project, "plan", "chapters.json")
+    plan = cws.read_json(plan_path)
+    plan["chapters"][2]["hook"]["type"] = "button"
+    cws.write_json(plan_path, plan)
+    code, out = run("check", "--project", project, "--only", "hooks")
+    expect("查出：付费点禁止使用软钩 button", code == 1 and "付费点章节禁止使用软钩类型“button”" in out, out)
+
+    # 2. 平台禁用类型（short-drama 禁用 button）
+    project = os.path.join(tmp, "hook-drama-disallowed")
+    shutil.copytree(EXAMPLE, project)
+    p_cfg_path = os.path.join(project, "project.json")
+    p_cfg = cws.read_json(p_cfg_path)
+    p_cfg["platform"] = "short-drama"
+    cws.write_json(p_cfg_path, p_cfg)
+    plan_path = os.path.join(project, "plan", "chapters.json")
+    plan = cws.read_json(plan_path)
+    plan["chapters"][0]["hook"]["type"] = "button"
+    cws.write_json(plan_path, plan)
+    code, out = run("check", "--project", project, "--only", "hooks")
+    expect("查出：平台禁用钩子类型 button", code == 1 and "平台 short-drama 禁止使用钩子类型“button”" in out, out)
+
+    # 3. 单章强度低于平台下限告警
+    project = os.path.join(tmp, "hook-weak-warn")
+    shutil.copytree(EXAMPLE, project)
+    plan_path = os.path.join(project, "plan", "chapters.json")
+    plan = cws.read_json(plan_path)
+    plan["chapters"][0]["hook"]["strength"] = 2
+    cws.write_json(plan_path, plan)
+    code, out = run("check", "--project", project, "--only", "hooks")
+    expect("查出：单章强度低于平台下限告警", "低于平台下限 3" in out, out)
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -208,6 +244,7 @@ def main():
             test_styles(tmp)
             test_cjk_names(tmp)
             test_modes(tmp)
+            test_hook_hardening(tmp)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print("\n%s" % ("全部通过" if not failures else "失败 %d 项：%s" % (len(failures), "、".join(failures))))

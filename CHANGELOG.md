@@ -1,5 +1,22 @@
 # 更新记录
 
+## v2.1.0
+
+### 新增与核心优化
+- **章尾强钩硬化与防软化机制**：
+  - 确立商业网文付费转化核心哲学：坚决给读者“生理饥饿感（Visceral Urgency）”，严防“文学饱腹感（Aesthetic Satiety）”导致次日弃读。
+  - 引入**“半拍截断原则（Mid-Action Cut）”**：严禁在动作完成或平稳落地后收笔（如脱鞋入睡、打开表格），强制在动作执行一半被意外打断、新危机迫降或秘密撕裂的瞬间硬性截断。
+  - 钩子类型分级：划分为 **Tier 1 高转化硬钩**（`danger`, `caught`, `reveal`, `desire`, `reversal`）、**Tier 2 推进型中钩**（`message`, `deadline`, `showdown`, `decision`）与 **Tier 3 软钩**（`question`, `button`）。
+- **平台配置分级与付费卡点防软化**：
+  - `en-app-serial`（英文连载App）与 `cn-serial`（中文网文连载）最低钩子强度底线提升至 `3`，连续弱钩（强度 ≤2）直接告警。
+  - `short-drama`（竖屏短剧）钩子强度底线拉高至 `4`，付费点强制 `5`，平台禁用 `button`。
+  - 付费卡点章节（`paywall: true`）强制禁用 `button`（金句收束）与 `question`（细节微疑），必须使用 Tier 1 硬钩。
+- **校验工具 `cws.py` 增强**：
+  - 新增 `paywall_forbidden_types` 校验：付费点使用软钩直接报错。
+  - 新增平台 `disallowed_types` 校验：命中平台禁用类型直接报错。
+  - 增强连续弱钩追踪告警。
+  - 自测套件扩充至 62 项全量通过测试。
+
 ## v2.0.0
 
 ### 新增

@@ -2,12 +2,19 @@
   "id": "cn-serial",
   "name": "中文网文连载（番茄、七猫、起点一类）",
   "lang": "zh",
-  "provenance": "经验默认值，不是平台官方数据。签约和发布前以平台后台与合同为准，差异写进 project.json 的 overrides。",
+  "provenance": "商业网文连载标准。按章追更与卡点付费模式下，章尾强钩是保证次日留存与转化率的核心。执行半拍截断原则，章尾禁止平稳落地。",
   "length": {"unit": "chars", "min": 2000, "max": 3500, "tolerance": 0.2},
-  "hooks": {"required": "every_chapter", "min_strength": 2, "paywall_min_strength": 4, "max_same_run": 1},
+  "hooks": {
+    "required": "every_chapter",
+    "min_strength": 3,
+    "paywall_min_strength": 4,
+    "max_same_run": 1,
+    "max_weak_run": 0,
+    "paywall_forbidden_types": ["button", "question"]
+  },
   "paywall": {
     "model": "章节付费或免费加广告",
-    "guide": "付费书在入 V 章前 3 章把强度拉到 4 以上；免费书看完读率，不设单一付费点。在细纲上给对应章节标 paywall: true。"
+    "guide": "付费书在入 V 章前 3 章把强度拉到 4 以上；免费书看完读率与翻页率。在细纲上给对应章节标 paywall: true，禁用 button 和 question。"
   },
   "compliance": [
     "不写未成年人的性内容或性暗示",
